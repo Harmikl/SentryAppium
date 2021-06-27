@@ -64,9 +64,9 @@ public class Platform {
         capabilities.setCapability("deviceName", "AndroidTestDevice");
         capabilities.setCapability("platformVersion", "8.0");
         capabilities.setCapability("automationName", "Appium");
-        capabilities.setCapability("appPackage", "org.wikipedia");
-        capabilities.setCapability("appActivity", ".main.MainActivity");
-        capabilities.setCapability("app", "/Users/maksimkharmak/Desktop/org.wikipedia.apk");
+        capabilities.setCapability("appPackage", "com.sentryd.trade");
+        capabilities.setCapability("appActivity", ".ui.activity.SplashActivity");
+        capabilities.setCapability("app", "/Users/maksimkharmak/Desktop/Sentry prodRelease_2.138.2.apk");
       //  capabilities.setCapability("udid", "1c88f784220d7ece");
         return capabilities;
     }

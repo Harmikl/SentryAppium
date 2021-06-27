@@ -36,11 +36,13 @@ public class WelcomePageObject extends MainPageObject{
     {
         this.waitForElementPresent(STEP_LEARN_MORE_ABOUT_DATA_COLLECTED_LINK,"Cannot find 'Learn more about data collected' text", 10);
     }
+
     @Step("Click next button")
     public void clickNextButton ()
     {
         this.waitForElementAndClick(NEXT_LINK, "Cannot find and click 'Next' button",10);
     }
+
     @Step("Click get started button")
     public void clickGetStartedButton ()
     {

@@ -251,6 +251,7 @@ public class MainPageObject {
         By by = this.getLocatorByString(locator);
         WebDriverWait wait = new WebDriverWait(driver, 15);
         wait.until(ExpectedConditions.elementToBeClickable(by));
+
     }
     private By getLocatorByString (String locator_with_type)
     {
