@@ -66,8 +66,8 @@ public class Platform {
         capabilities.setCapability("automationName", "Appium");
         capabilities.setCapability("appPackage", "com.sentryd.trade");
         capabilities.setCapability("appActivity", ".ui.activity.SplashActivity");
-        capabilities.setCapability("app", "/Users/maksimkharmak/Desktop/Sentry prodRelease_2.138.2.apk");
-      //  capabilities.setCapability("udid", "1c88f784220d7ece");
+        capabilities.setCapability("app", "C:/Users/kharmak/Desktop/SentryprodRelease.apk");
+        capabilities.setCapability("udid", "1c88f784220d7ece");
         return capabilities;
     }
     private DesiredCapabilities getIOSDesiredCapabilities ()

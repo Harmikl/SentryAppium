@@ -19,6 +19,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.time.Duration;
 import java.util.List;
+import java.util.Random;
 import java.util.regex.Pattern;
 
 public class MainPageObject {
@@ -225,6 +226,17 @@ public class MainPageObject {
         WebElement element = waitForElementPresent( locator, error_message, timeoutInSeconds);
         return element.getAttribute(attribute);
     }
+
+    public WebElement assertGetAttribute(String locator,String attribute,String expected_attribute,  String error_message, long timeoutInSeconds)
+    {
+        WebElement element = waitForElementPresent( locator, error_message, timeoutInSeconds);
+        String actual_attribute=element.getAttribute(attribute);
+        Assert.assertEquals(
+                error_message,
+                expected_attribute,
+                actual_attribute);
+        return element;
+    }
     public void assertElementPresent(String locator ){
         By by = this.getLocatorByString(locator);
         List elements = driver.findElements(by);
@@ -298,6 +310,18 @@ public class MainPageObject {
         return bytes;
     }
 
+    protected String getGeneratedEmail() {
+        String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        StringBuilder salt = new StringBuilder();
+        Random rnd = new Random();
+        while (salt.length() < 10) { // length of the random string.
+            int index = (int) (rnd.nextFloat() * SALTCHARS.length());
+            salt.append(SALTCHARS.charAt(index));
+        }
+        String saltStr = salt.toString();
+        return saltStr;
+
+    }
 }
 
 
