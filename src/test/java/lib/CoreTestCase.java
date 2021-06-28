@@ -2,8 +2,6 @@ package lib;
 
 import io.appium.java_client.AppiumDriver;
 import io.qameta.allure.Step;
-import junit.framework.TestCase;
-import lib.ui.WelcomePageObject;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.ScreenOrientation;
@@ -23,7 +21,6 @@ public class CoreTestCase  {//
         driver = Platform.getInstance().getDriver();
         this.createAllurePropertyFile();
         this.rotateScreenPortrait();
-        this.skipWelcomePageForIOSApp();
         this.openWikiWebPageForMobileWeb();
     }
 @After
@@ -70,16 +67,7 @@ public class CoreTestCase  {//
             System.out.println("Method openWikiWebPageForMobileWeb do nothing for platform "+Platform.getInstance().getPlatformVar());
         }
     }
-    @Step("Skip welcome page for ios")
-    private void skipWelcomePageForIOSApp()
-    {
-        if (lib.Platform.getInstance().isIOS()){
-            AppiumDriver driver = (AppiumDriver) this.driver;
-            WelcomePageObject WelcomePageObject = new WelcomePageObject(driver);
-            WelcomePageObject.clickSkip();
-        }
 
-    }
 
     private void createAllurePropertyFile()
     {
