@@ -62,7 +62,9 @@ public class SignInUpTests extends CoreTestCase {
         LoginPageObject.clickCreateAccount();
 
         RealRegistrationPageObject RealRegistrationPageObject = RealRegistrationPageObjectFactory.get(driver);
-        RealRegistrationPageObject.enterFirstAndLastName1();
+        RealRegistrationPageObject.enterData1stWebView();
+        RealRegistrationPageObject.enterData2ndWebView();
+        RealRegistrationPageObject.enterData3rdWebView();
 
 
     }

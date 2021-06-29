@@ -62,12 +62,12 @@ public class Platform {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("platformName", "Android");
         capabilities.setCapability("deviceName", "AndroidTestDevice");
-        capabilities.setCapability("platformVersion", "8.0");
+        capabilities.setCapability("platformVersion", "9.0");
         capabilities.setCapability("automationName", "Appium");
         capabilities.setCapability("appPackage", "com.sentryd.trade");
         capabilities.setCapability("appActivity", ".ui.activity.SplashActivity");
         capabilities.setCapability("app", "C:/Users/kharmak/Desktop/SentryprodRelease.apk");
-        capabilities.setCapability("udid", "1c88f784220d7ece");
+      //  capabilities.setCapability("udid", "1c88f784220d7ece");
         return capabilities;
     }
     private DesiredCapabilities getIOSDesiredCapabilities ()

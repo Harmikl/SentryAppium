@@ -86,7 +86,6 @@ abstract public class LoginPageObject extends MainPageObject{
     {
         this.assertGetAttribute(EMAIL_LOGIN,"text","Username or Email","Cannot find email hint in email input",10);
         this.assertGetAttribute(PASSWORD_LOGIN,"text","Password","Cannot find password hint in password input",10);
-
     }
 
 
@@ -172,7 +171,5 @@ abstract public class LoginPageObject extends MainPageObject{
         this.waitForElementPresent(LOGIN,"Cannot find login button",10);
         this.waitForElementPresent(FORGOT_PASSWORD,"Cannot find forgot password button",10);
         this.waitForElementPresent(SIGN_UP,"Cannot find sign up button",10);
-
-
     }
 }
