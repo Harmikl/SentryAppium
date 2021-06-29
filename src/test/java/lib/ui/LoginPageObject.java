@@ -132,6 +132,7 @@ abstract public class LoginPageObject extends MainPageObject{
     {
         this.waitForElementAndSendKeys(EMAIL_INPUT,"qwe2@qwe.qwe","Cannot enter exist email",10);
     }
+
     public void demoRegistrationScreenIsOpen()
     {
         this.demoTabIsSelected();
