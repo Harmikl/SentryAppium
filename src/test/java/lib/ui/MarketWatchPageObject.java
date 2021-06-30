@@ -9,7 +9,7 @@ abstract public class MarketWatchPageObject extends MainPageObject {
     BLUE_BUTTON,
     ACCOUNT_VALUE;
 
-    public void marketwatchScreenIsOpen()
+    public void marketwatchScreenIsOpenForFirstLogin()
     {
         this.waitForElementPresent(START_TUTORIAL,"Cannot find Start tutorial button",120);
         //this.waitForElementPresent(MENU,"Cannot find menu button",60);

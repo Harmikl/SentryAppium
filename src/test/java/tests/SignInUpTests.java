@@ -49,12 +49,11 @@ public class SignInUpTests extends CoreTestCase {
         LoginPageObject.clickCreateAccount();
 
         MarketWatchPageObject MarketWatchPageObject = MarketwatchPageObjectFactory.get(driver);
-        MarketWatchPageObject.marketwatchScreenIsOpen();
+        MarketWatchPageObject.marketwatchScreenIsOpenForFirstLogin();
     }
 
     @Test
-    public void realRegistration()
-    {
+    public void realRegistrationAndTapSkip() throws InterruptedException {
         LoginPageObject LoginPageObject= LoginPageObjectFactory.get(driver);
         LoginPageObject.clickSplashReal();
         LoginPageObject.enterEmailRegister();
@@ -65,7 +64,20 @@ public class SignInUpTests extends CoreTestCase {
         RealRegistrationPageObject.enterData1stWebView();
         RealRegistrationPageObject.enterData2ndWebView();
         RealRegistrationPageObject.enterData3rdWebView();
+        RealRegistrationPageObject.enterData4thWebView();
+        RealRegistrationPageObject.enterData5thWebView();
+        RealRegistrationPageObject.enterData6thWebView();
+        RealRegistrationPageObject.enterData7thWebView();
+        RealRegistrationPageObject.enterData8thWebView();
+        RealRegistrationPageObject.enterData9thWebView();
+        RealRegistrationPageObject.enterData10thWebView();
+        RealRegistrationPageObject.enterData11thWebView();
+        RealRegistrationPageObject.enterData12thWebView();
+        RealRegistrationPageObject.enterData13thWebView();
+        RealRegistrationPageObject.tapOnFinalRegisterSkip();
 
+        MarketWatchPageObject MarketWatchPageObject = MarketwatchPageObjectFactory.get(driver);
+        MarketWatchPageObject.marketwatchScreenIsOpenForFirstLogin();
 
     }
 
