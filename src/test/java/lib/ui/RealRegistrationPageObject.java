@@ -51,22 +51,30 @@ abstract public class RealRegistrationPageObject extends MainPageObject {
     public void enterData2ndWebView() throws InterruptedException {
         Thread.sleep(1000);
         this.clickByCoordinatesOnDatePicker();
+        Thread.sleep(1000);
         this.waitForElementAndClick(SET_DATE_PICKER,"Cannot set date in date picker",10);
         this.waitForElementAndClick(NEXT2,"Cannot find and click nex2 button",10);
     }
 
 
-    public void enterData3rdWebView() throws InterruptedException {Thread.sleep(5000);
+    public void enterData3rdWebView() throws InterruptedException {Thread.sleep(4000);
         this.waitTillElementBeClickable(ADDRESS,"Address button is unclickable");
         this.waitForElementAndSendKeys(ADDRESS,"Max","Cannot enter value in address field",10);
         Thread.sleep(1000);
+       // this.clickByCoordinatesOnCityInput();
         this.waitTillElementBeClickable(CITY,"Address button is unclickable");
         this.waitForElementAndSendKeys(CITY,"Max","Cannot enter value in city field",10);
+        Thread.sleep(1000);
         this.waitForElementAndSendKeys(STREET_NAME,"Max","Cannot enter value in street field",10);
+        Thread.sleep(1000);
         this.waitForElementAndSendKeys(STREET_NUMBER,"Max","Cannot enter value in street number field",10);
+        Thread.sleep(1000);
         this.waitForElementAndSendKeys(APARTMENT,"Max","Cannot enter value in apartment field",10);
+        Thread.sleep(1000);
         this.waitForElementAndSendKeys(ZIP_CODE,"000","Cannot enter value in city field",10);
+        Thread.sleep(1000);
         this.swipeUpTillElementAppear(NEXT_3,"Cannot find next 3 button",3);
+        Thread.sleep(1000);
         this.waitForElementAndClick(NEXT_3,"Cannot click next 3 button",5);
 
     }
@@ -80,16 +88,14 @@ abstract public class RealRegistrationPageObject extends MainPageObject {
         }
         this.waitForElementAndClick(NEXT_4,"Cannot click next 4 button",5);
     }
-    public void enterData5thWebView()
-    {
+    public void enterData5thWebView() throws InterruptedException {
+        Thread.sleep(1000);
         this.waitForElementAndClick(NEXT_5,"Cannot click next 5 button",5);
     }
-    public void enterData6thWebView()
-    {
+    public void enterData6thWebView() throws InterruptedException {  Thread.sleep(1000);
         this.waitForElementAndClick(NEXT_6,"Cannot click next 6 button",5);
     }
-    public void enterData7thWebView()
-    {
+    public void enterData7thWebView() throws InterruptedException {  Thread.sleep(1000);
         this.waitForElementAndClick(ACCOUNTANCY_7,"Cannot click accountancy 7 button",5);
     }
     public void enterData8thWebView() throws InterruptedException {
@@ -119,13 +125,14 @@ abstract public class RealRegistrationPageObject extends MainPageObject {
         this.waitForElementAndClick(TOGGLE_13,"Cannot click toggle 13 button",5);
         this.waitForElementAndClick(NEXT_13,"Cannot click next 13 button",5);
     }
-    public void tapOnFinalRegisterDepositNow()
-    {
-        this.waitForElementAndClick(DEPOSIT_NOW_FINAL_REGISTER,"Cannot find deposit now button",10);
+    public void tapOnFinalRegisterDepositNow() throws InterruptedException {Thread.sleep(1000);
+
+        this.waitForElementAndClick(DEPOSIT_NOW_FINAL_REGISTER,"Cannot find deposit now button",30);
     }
-    public void tapOnFinalRegisterSkip() throws InterruptedException {
-        Thread.sleep(1000);
-        this.waitForElementAndClick(SKIP_FINAL_REGISTER,"Cannot find deposit now button",10);
+    public void tapOnFinalRegisterSkip() throws InterruptedException { Thread.sleep(5000);
+       // this.waitTillElementBeClickable(SKIP_FINAL_REGISTER,"Cannot find skip button");
+        //this.tryClickElementWithFewAttempts(SKIP_FINAL_REGISTER,"Cannot find skip button",30);
+        this.waitForElementAndClick(SKIP_FINAL_REGISTER,"Cannot find skip button",30);
     }
 }
 

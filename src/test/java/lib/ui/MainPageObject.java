@@ -81,6 +81,16 @@ public class MainPageObject {
         System.out.println("I have clicked on coordinates");
     }
 
+    public void clickByCoordinatesOnCityInput() throws InterruptedException {
+        Thread.sleep(2000);
+        TouchAction action = new TouchAction((AppiumDriver) driver);
+        Dimension size = driver.manage().window().getSize();
+        int x=size.width / 2;
+        int y=(int) (size.height * 0.498);
+        action.press(PointOption.point(x,y)).release().perform();
+        System.out.println("I have clicked on coordinates");
+    }
+
     public void swipeUp(int timeOfSwipe) {
         if (driver instanceof AppiumDriver) {
             TouchAction action = new TouchAction((AppiumDriver) driver);

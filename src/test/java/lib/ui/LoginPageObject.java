@@ -158,7 +158,7 @@ abstract public class LoginPageObject extends MainPageObject{
         this.descriptionIsShown();
     }
 
-    public void loginScreenIsOpen()
+    public void loginScreenIsOpenWithEmptyFields()
     {
         this.waitForElementPresent(WELCOME_TITLE,"Cannot find welcome title",10);
         this.waitForElementPresent(EMAIL_LOGIN,"Cannot find login input",10);

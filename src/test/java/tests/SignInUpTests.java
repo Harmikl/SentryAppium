@@ -23,13 +23,12 @@ public class SignInUpTests extends CoreTestCase {
         LoginPageObject.demoRegistrationScreenIsOpen();
         LoginPageObject.closeRegisterView();
         LoginPageObject.clickSplashLogin();
-        LoginPageObject.loginScreenIsOpen();
+        LoginPageObject.loginScreenIsOpenWithEmptyFields();
 
     }
 
     @Test
-    public void demoRegistration()
-    {
+    public void demoRegistration() throws InterruptedException {
         LoginPageObject LoginPageObject= LoginPageObjectFactory.get(driver);
         LoginPageObject.clickSplashDemo();
 
@@ -78,7 +77,31 @@ public class SignInUpTests extends CoreTestCase {
 
         MarketWatchPageObject MarketWatchPageObject = MarketwatchPageObjectFactory.get(driver);
         MarketWatchPageObject.marketwatchScreenIsOpenForFirstLogin();
+    }
 
+    @Test
+    public void realRegistrationAndTapDeposit() throws InterruptedException {
+        LoginPageObject LoginPageObject= LoginPageObjectFactory.get(driver);
+        LoginPageObject.clickSplashReal();
+        LoginPageObject.enterEmailRegister();
+        LoginPageObject.enterPasswordRegister();
+        LoginPageObject.clickCreateAccount();
+
+        RealRegistrationPageObject RealRegistrationPageObject = RealRegistrationPageObjectFactory.get(driver);
+        RealRegistrationPageObject.enterData1stWebView();
+        RealRegistrationPageObject.enterData2ndWebView();
+        RealRegistrationPageObject.enterData3rdWebView();
+        RealRegistrationPageObject.enterData4thWebView();
+        RealRegistrationPageObject.enterData5thWebView();
+        RealRegistrationPageObject.enterData6thWebView();
+        RealRegistrationPageObject.enterData7thWebView();
+        RealRegistrationPageObject.enterData8thWebView();
+        RealRegistrationPageObject.enterData9thWebView();
+        RealRegistrationPageObject.enterData10thWebView();
+        RealRegistrationPageObject.enterData11thWebView();
+        RealRegistrationPageObject.enterData12thWebView();
+        RealRegistrationPageObject.enterData13thWebView();
+        RealRegistrationPageObject.tapOnFinalRegisterDepositNow();
     }
 
 }
