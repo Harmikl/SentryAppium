@@ -1,9 +1,11 @@
 package tests;
 
 import lib.CoreTestCase;
+import lib.ui.ForgotPasswordPageObject;
 import lib.ui.LoginPageObject;
 import lib.ui.MarketWatchPageObject;
 import lib.ui.RealRegistrationPageObject;
+import lib.ui.factories.ForgotPasswordPageObjectFactory;
 import lib.ui.factories.LoginPageObjectFactory;
 import lib.ui.factories.MarketwatchPageObjectFactory;
 import lib.ui.factories.RealRegistrationPageObjectFactory;
@@ -102,6 +104,39 @@ public class SignInUpTests extends CoreTestCase {
         RealRegistrationPageObject.enterData12thWebView();
         RealRegistrationPageObject.enterData13thWebView();
         RealRegistrationPageObject.tapOnFinalRegisterDepositNow();
+    }
+
+    @Test
+    public void forgotPassword() throws InterruptedException {
+        LoginPageObject LoginPageObject= LoginPageObjectFactory.get(driver);
+        LoginPageObject.clickSplashLogin();
+        LoginPageObject.clickForgotPassword();
+
+        ForgotPasswordPageObject ForgotPasswordPageObject = ForgotPasswordPageObjectFactory.get(driver);
+        ForgotPasswordPageObject.forgotPasswordViewIsOpen();
+
+        ForgotPasswordPageObject.closeForgotPasswordView();
+        LoginPageObject.loginScreenIsOpenWithEmptyFields();
+
+        LoginPageObject.clickForgotPassword();
+        ForgotPasswordPageObject.forgotPasswordViewIsOpen();
+
+        ForgotPasswordPageObject.clickCancelButton();
+        LoginPageObject.loginScreenIsOpenWithEmptyFields();
+
+        LoginPageObject.clickForgotPassword();
+        ForgotPasswordPageObject.forgotPasswordViewIsOpen();
+
+        tapBackButton();
+        LoginPageObject.loginScreenIsOpenWithEmptyFields();
+
+        LoginPageObject.clickForgotPassword();
+        ForgotPasswordPageObject.enterEmailInEmailInput();
+        ForgotPasswordPageObject.clickSubmitButton();
+        ForgotPasswordPageObject.emailIsSent();
+        ForgotPasswordPageObject.clickReturnToLogin();
+
+        LoginPageObject.loginScreenIsOpenWithEmptyFields();
     }
 
 }

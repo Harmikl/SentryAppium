@@ -58,6 +58,13 @@ public class CoreTestCase  {//
             System.out.println("Method rotateScreenPortrait() does nothing for platform "+Platform.getInstance().getPlatformVar());
         }
     }
+
+    @Step("Tap back software button")
+    protected void tapBackButton()
+    {
+        driver.navigate().back();
+    }
+
     @Step("Open wiki page for mobile web(this method does nothing for android and ios)")
     protected void openWikiWebPageForMobileWeb()
     {
@@ -67,7 +74,6 @@ public class CoreTestCase  {//
             System.out.println("Method openWikiWebPageForMobileWeb do nothing for platform "+Platform.getInstance().getPlatformVar());
         }
     }
-
 
     private void createAllurePropertyFile()
     {

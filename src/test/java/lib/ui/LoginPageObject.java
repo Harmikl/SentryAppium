@@ -136,6 +136,10 @@ abstract public class LoginPageObject extends MainPageObject{
     {
         this.waitForElementAndClick(SIGN_UP,"Cannot find and click Sign up button on login",10);
     }
+    public void clickForgotPassword()
+    {
+        this.waitForElementAndClick(FORGOT_PASSWORD,"Cannot find and click forgot password on login screen",10);
+    }
 
     public void demoRegistrationScreenIsOpen() {
         this.demoTabIsSelected();
