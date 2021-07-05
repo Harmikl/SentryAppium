@@ -11,8 +11,7 @@ import org.junit.Test;
 
 public class SignInUpTests extends CoreTestCase {
     @Test
-    public void openDemoRealAndLoin()
-    {
+    public void openDemoRealAndLoin() {
         LoginPageObject LoginPageObject= LoginPageObjectFactory.get(driver);
         LoginPageObject.clickSplashDemo();
         LoginPageObject.demoRegistrationScreenIsOpen();
@@ -24,7 +23,8 @@ public class SignInUpTests extends CoreTestCase {
         LoginPageObject.closeRegisterView();
         LoginPageObject.clickSplashLogin();
         LoginPageObject.loginScreenIsOpenWithEmptyFields();
-
+        LoginPageObject.clickSignUpLogin();
+        LoginPageObject.realRegistrationScreenIsOpen();
     }
 
     @Test

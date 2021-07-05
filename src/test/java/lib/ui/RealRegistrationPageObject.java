@@ -42,6 +42,7 @@ abstract public class RealRegistrationPageObject extends MainPageObject {
     }
 
     public void enterData1stWebView() throws InterruptedException {
+        Thread.sleep(1000);
         this.waitForElementAndSendKeys(FIRST_NAME,"Max","Cannot input data in first name field",40);
         this.waitForElementAndSendKeys(LAST_NAME,"Pax","Cannot input data in last name field",40);
         Thread.sleep(1000);
@@ -75,7 +76,7 @@ abstract public class RealRegistrationPageObject extends MainPageObject {
         Thread.sleep(1000);
         this.swipeUpTillElementAppear(NEXT_3,"Cannot find next 3 button",3);
         Thread.sleep(1000);
-        this.waitForElementAndClick(NEXT_3,"Cannot click next 3 button",5);
+        this.waitForElementAndClick(NEXT_3,"Cannot click next 3 button",10);
 
     }
 
@@ -117,7 +118,7 @@ abstract public class RealRegistrationPageObject extends MainPageObject {
     }
     public void enterData12thWebView() throws InterruptedException {Thread.sleep(1000);
     this.waitTillElementBeClickable(EMPLOYED_12,"Employed 12 is unclickable");
-        this.waitForElementAndClick(EMPLOYED_12,"Cannot click less employed 12 button",5);
+        this.waitForElementAndClick(EMPLOYED_12,"Cannot click less employed 12 button",10);
     }
     public void enterData13thWebView() throws InterruptedException {
         Thread.sleep(1000);

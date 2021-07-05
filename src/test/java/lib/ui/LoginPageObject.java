@@ -132,8 +132,12 @@ abstract public class LoginPageObject extends MainPageObject{
         this.waitForElementAndSendKeys(EMAIL_INPUT,"qwe2@qwe.qwe","Cannot enter exist email",10);
     }
 
-    public void demoRegistrationScreenIsOpen()
+    public void clickSignUpLogin()
     {
+        this.waitForElementAndClick(SIGN_UP,"Cannot find and click Sign up button on login",10);
+    }
+
+    public void demoRegistrationScreenIsOpen() {
         this.demoTabIsSelected();
         this.emailAndPasswordHintsAreShown();
         this.waitForElementPresent(EMAIL_INPUT,"cannot find email input",10);
