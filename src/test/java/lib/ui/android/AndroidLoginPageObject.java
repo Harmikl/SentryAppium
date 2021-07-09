@@ -28,6 +28,8 @@ public class AndroidLoginPageObject extends LoginPageObject {
                 SIGN_UP="id:com.sentryd.trade:id/text_view_sign_up";
                 ERROR_INVALID_EMAIL_FORMAT="id:com.sentryd.trade:id/decription_email";
                 ERROR_INVALID_PASSWORD="id:com.sentryd.trade:id/decription_password";
+                INCORRECT_LOGIN_ERROR_FOR_REAL_ACC="xpath://*[contains(@text,'Incorrect Login. Please try again or contact customer service.')]";
+                INCORRECT_LOGIN_ERROR_FOR_DEMO_ACC="xpath://*[contains(@text,'Demo account expired')]";
     }
 
     public AndroidLoginPageObject (RemoteWebDriver driver)

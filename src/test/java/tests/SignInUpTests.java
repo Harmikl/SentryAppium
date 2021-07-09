@@ -1,14 +1,8 @@
 package tests;
 
 import lib.CoreTestCase;
-import lib.ui.ForgotPasswordPageObject;
-import lib.ui.LoginPageObject;
-import lib.ui.MarketWatchPageObject;
-import lib.ui.RealRegistrationPageObject;
-import lib.ui.factories.ForgotPasswordPageObjectFactory;
-import lib.ui.factories.LoginPageObjectFactory;
-import lib.ui.factories.MarketwatchPageObjectFactory;
-import lib.ui.factories.RealRegistrationPageObjectFactory;
+import lib.ui.*;
+import lib.ui.factories.*;
 import org.junit.Test;
 
 public class SignInUpTests extends CoreTestCase {
@@ -50,7 +44,8 @@ public class SignInUpTests extends CoreTestCase {
         LoginPageObject.clickCreateAccount();
 
         MarketWatchPageObject MarketWatchPageObject = MarketwatchPageObjectFactory.get(driver);
-        MarketWatchPageObject.marketwatchScreenIsOpenForFirstLogin();
+        MarketWatchPageObject.clickSkipTutorial();
+        MarketWatchPageObject.marketwatchScreenIsOpen();
     }
 
     @Test
@@ -78,7 +73,7 @@ public class SignInUpTests extends CoreTestCase {
         RealRegistrationPageObject.tapOnFinalRegisterSkip();
 
         MarketWatchPageObject MarketWatchPageObject = MarketwatchPageObjectFactory.get(driver);
-        MarketWatchPageObject.marketwatchScreenIsOpenForFirstLogin();
+        MarketWatchPageObject.marketwatchScreenIsOpen();
     }
 
     @Test
@@ -138,5 +133,35 @@ public class SignInUpTests extends CoreTestCase {
 
         LoginPageObject.loginScreenIsOpenWithEmptyFields();
     }
+    @Test
+    public void loginWithRealDemoAccount() throws InterruptedException {
+        LoginPageObject LoginPageObject= LoginPageObjectFactory.get(driver);
+        LoginPageObject.clickSplashLogin();
+        LoginPageObject.enterMyEmailAndPassword();
+        LoginPageObject.clickLogin();
 
+        ChoseAccountPageObject ChoseAccountPageObject = ChoseAccountPageObjectFactory.get(driver);
+        ChoseAccountPageObject.chooseAccountIsOpen();
+        ChoseAccountPageObject.clickDemoAccountType();
+
+        MarketWatchPageObject MarketWatchPageObject = MarketwatchPageObjectFactory.get(driver);
+        MarketWatchPageObject.marketwatchScreenIsOpen();
+        MarketWatchPageObject.clickStartTutorial();
+        MarketWatchPageObject.onboardingTutorialIsOpen();
+    }
+    @Test
+    public void invalidCredentialsErrors()
+    {
+        LoginPageObject LoginPageObject= LoginPageObjectFactory.get(driver);
+        LoginPageObject.clickSplashLogin();
+        LoginPageObject.enterIncorrectRealEmail();
+        LoginPageObject.clickLogin();
+        LoginPageObject.IncorrectLoginErrorForRealAccIsShown();
+        tapBackButton();
+        LoginPageObject.enterIncorrectDemoEmail();
+        LoginPageObject.clickLogin();
+        LoginPageObject.IncorrectLoginErrorForDemoAccIsShown();
+        tapBackButton();
+        tapBackButton();
+    }
 }

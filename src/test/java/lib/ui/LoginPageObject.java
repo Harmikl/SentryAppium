@@ -26,8 +26,9 @@ abstract public class LoginPageObject extends MainPageObject{
     FORGOT_PASSWORD,
     SIGN_UP,
     ERROR_INVALID_EMAIL_FORMAT,
-    ERROR_INVALID_PASSWORD;
-
+    ERROR_INVALID_PASSWORD,
+    INCORRECT_LOGIN_ERROR_FOR_REAL_ACC,
+    INCORRECT_LOGIN_ERROR_FOR_DEMO_ACC;
 
     public LoginPageObject (RemoteWebDriver driver)
     {
@@ -101,6 +102,18 @@ abstract public class LoginPageObject extends MainPageObject{
         this.waitForElementAndSendKeys(PASSWORD_INPUT,password,"Cannot enter password in input field",10);
     }
 
+    public void enterMyEmailAndPassword()
+    {String email = "qwe2@qwe.qwe";
+    String password = "55555tTt";
+        this.waitForElementAndSendKeys(EMAIL_LOGIN,email,"Cannot enter email in email input",10);
+        this.waitForElementAndSendKeys(PASSWORD_LOGIN,password,"Cannot enter password in password input",10);
+    }
+
+    public void clickLogin()
+    {
+        this.waitForElementAndClick(LOGIN,"Cannot click login button",10);
+    }
+
     public void clickCreateAccount()
     {
         this.waitForElementAndClick(CREATE_ACCOUNT,"Cannot find create account button",10);
@@ -139,6 +152,27 @@ abstract public class LoginPageObject extends MainPageObject{
     public void clickForgotPassword()
     {
         this.waitForElementAndClick(FORGOT_PASSWORD,"Cannot find and click forgot password on login screen",10);
+    }
+    public void enterIncorrectRealEmail()
+    {String email = "qwe2@qwee.qwe";
+        String password = "55555tTt";
+        this.waitForElementAndSendKeys(EMAIL_LOGIN,email,"Cannot enter email in email input",10);
+        this.waitForElementAndSendKeys(PASSWORD_LOGIN,password,"Cannot enter password in password input",10);
+    }
+    public void enterIncorrectDemoEmail()
+    {String email = "500103660";
+        String password = "55555tTt";
+        this.waitForElementAndSendKeys(EMAIL_LOGIN,email,"Cannot enter email in email input",10);
+        this.waitForElementAndSendKeys(PASSWORD_LOGIN,password,"Cannot enter password in password input",10);
+    }
+
+    public void IncorrectLoginErrorForRealAccIsShown()
+    {
+        this.waitForElementPresent(INCORRECT_LOGIN_ERROR_FOR_REAL_ACC,"Cannot find error for incorrect real email",15);
+    }
+    public void IncorrectLoginErrorForDemoAccIsShown()
+    {
+        this.waitForElementPresent(INCORRECT_LOGIN_ERROR_FOR_DEMO_ACC,"Cannot find error for incorrect real email",15);
     }
 
     public void demoRegistrationScreenIsOpen() {
