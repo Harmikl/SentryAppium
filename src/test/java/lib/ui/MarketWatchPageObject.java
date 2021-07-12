@@ -57,7 +57,7 @@ abstract public class MarketWatchPageObject extends MainPageObject {
         return CCY_PAIR_NAME.replace("{PAIRNAME}",ccypairname);
     }
     public void clickCcyPairName(String ccypairname) throws InterruptedException {
-        //Thread.sleep(1000);
+        Thread.sleep(2000);
         String ccy_pair_name_xpath = getCcyPairName(ccypairname);
         System.out.println(ccy_pair_name_xpath);
         this.tryClickElementSomeTimes(ccy_pair_name_xpath,"Cannot find  CCY_PAIR_NAME text",10);
