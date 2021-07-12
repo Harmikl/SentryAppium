@@ -23,6 +23,7 @@ abstract public class RealRegistrationPageObject extends MainPageObject {
     NEXT_3,
     NUMBER1_PHONE_NUMBER,
     NEXT_4,
+    SENTRY_OPTIONS,
     NEXT_5,
     NEXT_6,
     ACCOUNTANCY_7,
@@ -34,7 +35,12 @@ abstract public class RealRegistrationPageObject extends MainPageObject {
     TOGGLE_13,
     NEXT_13,
     DEPOSIT_NOW_FINAL_REGISTER,
-    SKIP_FINAL_REGISTER;
+    SKIP_FINAL_REGISTER,
+    REAL_REGISTRATION_WEBVIEW,
+    DEPOSIT_WEBVIEW_HEADER,
+    CLOSE_DEPOSIT_WEBVIEW,
+    PLEASE_CHOOSE_DEPOSIT_METHOD,
+    PLEASE_SELECT_SPECIFIC_ACCOUNT_OF_DEPOSIT;
 
     public RealRegistrationPageObject (RemoteWebDriver driver)
     {
@@ -91,6 +97,7 @@ abstract public class RealRegistrationPageObject extends MainPageObject {
     }
     public void enterData5thWebView() throws InterruptedException {
         Thread.sleep(1000);
+        this.waitForElementAndClick(SENTRY_OPTIONS,"Cannot click 'Sentry options' button",5);
         this.waitForElementAndClick(NEXT_5,"Cannot click next 5 button",5);
     }
     public void enterData6thWebView() throws InterruptedException {  Thread.sleep(1000);
@@ -134,6 +141,22 @@ abstract public class RealRegistrationPageObject extends MainPageObject {
        // this.waitTillElementBeClickable(SKIP_FINAL_REGISTER,"Cannot find skip button");
         //this.tryClickElementWithFewAttempts(SKIP_FINAL_REGISTER,"Cannot find skip button",30);
         this.waitForElementAndClick(SKIP_FINAL_REGISTER,"Cannot find skip button",30);
+    }
+    public void realRegistrationWebviewIsOpen() throws InterruptedException {
+        Thread.sleep(9000);
+        this.waitForElementPresent(REAL_REGISTRATION_WEBVIEW,"Real registration web view is not open",15);
+    }
+
+    public void depositWebViewIsOpen() throws InterruptedException {
+        Thread.sleep(9000);
+        this.waitForElementPresent(DEPOSIT_WEBVIEW_HEADER,"Cannot find deposit header",15);
+        this.waitForElementPresent(CLOSE_DEPOSIT_WEBVIEW,"Cannot find close icon",15);
+        this.waitForElementPresent(PLEASE_CHOOSE_DEPOSIT_METHOD,"Cannot find deposit method text",15);
+        this.waitForElementPresent(PLEASE_SELECT_SPECIFIC_ACCOUNT_OF_DEPOSIT,"Cannot find 'Select the specific account' on deposit ",15);
+    }
+    public void closeDepositWebView()
+    {
+        this.waitForElementAndClick(CLOSE_DEPOSIT_WEBVIEW,"Cannot click close icon",15);
     }
 }
 

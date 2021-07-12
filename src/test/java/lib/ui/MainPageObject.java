@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.time.Duration;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import java.util.regex.Pattern;
@@ -46,6 +47,13 @@ public class MainPageObject {
     public WebElement waitForElementAndClick(String locator, String error_message, long timeoutInSeconds) {//написали метод который сначала дожидается какого-то
         //элемента которыый передается в xpath or id и затем происходит клик
         WebElement element = waitForElementPresent(locator, error_message, timeoutInSeconds);
+        element.click();
+        return element;
+    }
+    public WebElement waitForElementAndClick2(String locator, String error_message, long timeoutInSeconds) {//написали метод который сначала дожидается какого-то
+        //элемента которыый передается в xpath or id и затем происходит клик
+        WebElement element = waitForElementPresent(locator, error_message, timeoutInSeconds);
+        element.click();
         element.click();
         return element;
     }
@@ -248,6 +256,24 @@ public class MainPageObject {
         }
     }
 
+    public void tryClickElementSomeTimes(String locator, String error_message, int amount_of_attempts) {
+        int current_attempts = 0;
+        //boolean need_more_attempts = true;
+        while (current_attempts <= amount_of_attempts) {
+            try {
+                this.waitForElementAndClick(locator, error_message, 1);
+               // need_more_attempts = false;
+            } catch (org.openqa.selenium.StaleElementReferenceException ex)
+            {
+                System.out.println(current_attempts);
+//                if (current_attempts > amount_of_attempts) {
+//                    this.waitForElementAndClick(locator, error_message, 1);
+//                }
+            }
+            ++current_attempts;
+        }
+    }
+
     public String waitForElementAndGetAttribute(String locator, String attribute, String error_message, long timeoutInSeconds) {
         WebElement element = waitForElementPresent(locator, error_message, timeoutInSeconds);
         return element.getAttribute(attribute);
@@ -344,6 +370,12 @@ public class MainPageObject {
         }
         String saltStr = salt.toString();
         return saltStr;
+    }
+
+    public void clickFewTimes(String locator) {
+        By by = this.getLocatorByString(locator);
+        List elements = driver.findElements(by);
+
     }
 }
 

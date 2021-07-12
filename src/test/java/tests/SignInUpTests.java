@@ -99,6 +99,11 @@ public class SignInUpTests extends CoreTestCase {
         RealRegistrationPageObject.enterData12thWebView();
         RealRegistrationPageObject.enterData13thWebView();
         RealRegistrationPageObject.tapOnFinalRegisterDepositNow();
+        RealRegistrationPageObject.depositWebViewIsOpen();
+        RealRegistrationPageObject.closeDepositWebView();
+
+        MarketWatchPageObject MarketWatchPageObject = MarketwatchPageObjectFactory.get(driver);
+        MarketWatchPageObject.marketwatchScreenIsOpen();
     }
 
     @Test
@@ -163,5 +168,15 @@ public class SignInUpTests extends CoreTestCase {
         LoginPageObject.IncorrectLoginErrorForDemoAccIsShown();
         tapBackButton();
         tapBackButton();
+    }
+    @Test
+    public void registrationIncomplete() throws InterruptedException {
+        LoginPageObject LoginPageObject= LoginPageObjectFactory.get(driver);
+        LoginPageObject.clickSplashLogin();
+        LoginPageObject.enterIncompleteRegistrationEmail();
+        LoginPageObject.clickLogin();
+
+        RealRegistrationPageObject RealRegistrationPageObject = RealRegistrationPageObjectFactory.get(driver);
+        RealRegistrationPageObject.realRegistrationWebviewIsOpen();
     }
 }

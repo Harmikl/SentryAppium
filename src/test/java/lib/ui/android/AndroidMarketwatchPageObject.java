@@ -23,6 +23,8 @@ public class AndroidMarketwatchPageObject extends MarketWatchPageObject {
         FAVORITES_GROUP_NAME="id:com.sentryd.trade:id/group_name";
         ASK_COLUMN_TITLE="xpath://*[contains(@text,'Ask')]";
         BID_COLUMN_TITLE="xpath://*[contains(@text,'Bid')]";
+        CCY_PAIR_NAME ="xpath://*[contains(@text,'{PAIRNAME}')]";
+        CCY_PAIR_NAME2="xpath://*[contains(@text,'USD/CAD')]";
     }
 
 

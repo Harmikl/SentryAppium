@@ -166,6 +166,14 @@ abstract public class LoginPageObject extends MainPageObject{
         this.waitForElementAndSendKeys(PASSWORD_LOGIN,password,"Cannot enter password in password input",10);
     }
 
+    public void enterIncompleteRegistrationEmail()
+    {
+        String email = "qwe1@qwe.qwe";
+        String password = "55555tTt";
+        this.waitForElementAndSendKeys(EMAIL_LOGIN,email,"Cannot enter email in email input",10);
+        this.waitForElementAndSendKeys(PASSWORD_LOGIN,password,"Cannot enter password in password input",10);
+    }
+
     public void IncorrectLoginErrorForRealAccIsShown()
     {
         this.waitForElementPresent(INCORRECT_LOGIN_ERROR_FOR_REAL_ACC,"Cannot find error for incorrect real email",15);
