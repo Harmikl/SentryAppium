@@ -60,7 +60,7 @@ abstract public class MarketWatchPageObject extends MainPageObject {
         //Thread.sleep(1000);
         String ccy_pair_name_xpath = getCcyPairName(ccypairname);
         System.out.println(ccy_pair_name_xpath);
-        this.tryClickElementSomeTimes(ccy_pair_name_xpath,"Cannot find  CCY_PAIR_NAME text",6);
+        this.tryClickElementSomeTimes(ccy_pair_name_xpath,"Cannot find  CCY_PAIR_NAME text",10);
 
     }
     public void ccyPairLineIsInSelectedState(String ccypairname)
