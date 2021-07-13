@@ -23,7 +23,8 @@ abstract public class MarketWatchPageObject extends MainPageObject {
     ASK_COLUMN_TITLE,
     BID_COLUMN_TITLE,
     CCY_PAIR_NAME,
-    CCY_PAIR_NAME2;
+    CCY_PAIR_NAME2,
+    CHART_ONLY;
 
 
 
@@ -54,13 +55,12 @@ abstract public class MarketWatchPageObject extends MainPageObject {
     }
     public String getCcyPairName(String ccypairname)
     {
-        return CCY_PAIR_NAME.replace("{PAIRNAME}",ccypairname);
+        return CCY_PAIR_NAME2.replace("{PAIRNAME}",ccypairname);
     }
     public void clickCcyPairName(String ccypairname) throws InterruptedException {
-        Thread.sleep(2000);
         String ccy_pair_name_xpath = getCcyPairName(ccypairname);
         System.out.println(ccy_pair_name_xpath);
-        this.tryClickElementSomeTimes(ccy_pair_name_xpath,"Cannot find  CCY_PAIR_NAME text",10);
+        this.waitForElementAndClick(ccy_pair_name_xpath,"Cannot find  CCY_PAIR_NAME text",10);
 
     }
     public void ccyPairLineIsInSelectedState(String ccypairname)
@@ -69,7 +69,7 @@ abstract public class MarketWatchPageObject extends MainPageObject {
         this.assertGetAttribute(ccy_pair_name_xpath,"selected","true","Ccy pair line not in selected state",10);
     }
     public void clickCcyName2 () throws InterruptedException {//Thread.sleep(5000);
-    this.tryClickElementSomeTimes(CCY_PAIR_NAME2,"Cannot find  CCY_PAIR_NAME2 text",10);
+    this.tryClickElement(CCY_PAIR_NAME2,"Cannot find  CCY_PAIR_NAME2 text");
 
     }
     public void clickMenu()
@@ -77,4 +77,8 @@ abstract public class MarketWatchPageObject extends MainPageObject {
         this.waitForElementAndClick(MENU,"Cannot click menu",10);
     }
 
+    public void clickChartOnly()
+    {
+        this.waitForElementAndClick(CHART_ONLY,"Cannot find chart only",10);
+    }
 }

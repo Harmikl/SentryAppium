@@ -12,6 +12,7 @@ import org.junit.Test;
 public class MarketwatchTests extends CoreTestCase {
 @Test
     public void pairNameIsInSelectedState() throws InterruptedException {
+   // toggleWifi();
     LoginPageObject LoginPageObject= LoginPageObjectFactory.get(driver);
     LoginPageObject.clickSplashLogin();
     LoginPageObject.enterMyEmailAndPassword();
@@ -25,8 +26,10 @@ public class MarketwatchTests extends CoreTestCase {
     String ccypairname = "USD/CAD";
     MarketWatchPageObject.marketwatchScreenIsOpen();
     MarketWatchPageObject.clickCloseTutorial();
-    //MarketWatchPageObject.clickCcyName2();
-    MarketWatchPageObject.clickCcyPairName(ccypairname);
-    MarketWatchPageObject.ccyPairLineIsInSelectedState(ccypairname);
+     toggleWifi();
+     MarketWatchPageObject.clickCcyName2();
+//    MarketWatchPageObject.clickCcyPairName(ccypairname);
+//    MarketWatchPageObject.ccyPairLineIsInSelectedState(ccypairname);
+   // MarketWatchPageObject.clickChartOnly();
 }
 }

@@ -3,11 +3,11 @@ package lib.ui;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.TouchAction;
 import io.qameta.allure.Attachment;
-import io.qameta.allure.Step;
 import lib.Platform;
 import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -19,7 +19,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.time.Duration;
-import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import java.util.regex.Pattern;
@@ -39,6 +38,14 @@ public class MainPageObject {
                 ExpectedConditions.presenceOfElementLocated(by)
         );
     }
+    public WebElement waitForElementPresent1(String locator, String error_message, long timeoutInMilliSeconds) {
+        By by = this.getLocatorByString(locator);
+        WebDriverWait wait = new WebDriverWait(driver, timeoutInMilliSeconds);
+        wait.withMessage(error_message + "\n");
+        return wait.until(
+                ExpectedConditions.presenceOfElementLocated(by)
+        );
+    }
 
     public WebElement waitForElementPresent(String locator, String error_message) {
         return waitForElementPresent(locator, error_message, 10);
@@ -50,6 +57,25 @@ public class MainPageObject {
         element.click();
         return element;
     }
+
+    public WebElement clickElement(String locator, String error_message, long timeoutInSeconds) {
+        WebElement element = waitForElementPresent(locator, error_message,  timeoutInSeconds);//написали метод который сначала дожидается какого-то
+        //элемента которыый передается в xpath or id и затем происходит клик
+        element.click();
+        WebElement element1 = waitForElementPresent(locator, error_message,  timeoutInSeconds);
+        element1.click();
+        System.out.println("I have clicked");
+        return element;
+    }
+    public void clickElement1(String locator, String error_message, long timeoutInSeconds) throws InterruptedException {
+        //Thread.sleep(3000);
+        By by = getLocatorByString(locator);
+        Actions actions = new Actions(driver);
+        WebElement elementLocator = driver.findElement(by);
+        System.out.println("I have click element");
+        actions.click(elementLocator);
+    }
+
     public WebElement waitForElementAndClick2(String locator, String error_message, long timeoutInSeconds) {//написали метод который сначала дожидается какого-то
         //элемента которыый передается в xpath or id и затем происходит клик
         WebElement element = waitForElementPresent(locator, error_message, timeoutInSeconds);
@@ -258,20 +284,45 @@ public class MainPageObject {
 
     public void tryClickElementSomeTimes(String locator, String error_message, int amount_of_attempts) {
         int current_attempts = 0;
-        //boolean need_more_attempts = true;
-        while (current_attempts <= amount_of_attempts) {
+        boolean need_more_attempts = true;
+        while (need_more_attempts) {
             try {
-                this.waitForElementAndClick(locator, error_message, 1);
-               // need_more_attempts = false;
-            } catch (org.openqa.selenium.StaleElementReferenceException ex)
-            {
-                System.out.println(current_attempts);
-//                if (current_attempts > amount_of_attempts) {
-//                    this.waitForElementAndClick(locator, error_message, 1);
-//                }
+                this.clickElement(locator, error_message, 100);
+                need_more_attempts = false;
+            } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+                if (current_attempts > amount_of_attempts){
+                this.clickElement(locator, error_message, 100);
+              }
             }
+            System.out.println(current_attempts);
             ++current_attempts;
         }
+    }
+
+    public void tryClickElement(String locator, String error_message) {
+            try {
+                this.waitForElementAndClick(locator, error_message, 4);
+            } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+                this.waitForElementAndClick(locator, error_message, 4);
+            }
+        }
+
+    public boolean retryingFindClick(String locator, String error_message) throws InterruptedException {
+        Thread.sleep(2000);
+        By by = getLocatorByString(locator);
+        boolean result = false;
+       int amount_of_attempts = 0;
+        while(amount_of_attempts < 4) {
+            try {
+                driver.findElement(by).click();
+                result = true;
+                break;
+            } catch(org.openqa.selenium.StaleElementReferenceException ex) {
+            }
+            amount_of_attempts++;
+            System.out.println(amount_of_attempts);
+        }
+        return result;
     }
 
     public String waitForElementAndGetAttribute(String locator, String attribute, String error_message, long timeoutInSeconds) {
@@ -313,11 +364,17 @@ public class MainPageObject {
         );
     }
 
-    public void waitTillElementBeClickable(String locator, String error_message) {
+    public WebElement waitTillElementBeClickable(String locator, String error_message) {
         By by = this.getLocatorByString(locator);
-        WebDriverWait wait = new WebDriverWait(driver, 15);
-        wait.until(ExpectedConditions.elementToBeClickable(by));
+        WebDriverWait wait = new WebDriverWait(driver, 20);
+        return wait.until(ExpectedConditions.elementToBeClickable(by));
+    }
 
+    public WebElement clickClickableElement(String locator, String error_message, long timeoutInSeconds )
+    {
+        WebElement element = waitTillElementBeClickable(locator,error_message);
+        element.click();
+        return element;
     }
 
     private By getLocatorByString(String locator_with_type) {
@@ -370,12 +427,6 @@ public class MainPageObject {
         }
         String saltStr = salt.toString();
         return saltStr;
-    }
-
-    public void clickFewTimes(String locator) {
-        By by = this.getLocatorByString(locator);
-        List elements = driver.findElements(by);
-
     }
 }
 

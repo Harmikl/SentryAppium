@@ -1,15 +1,23 @@
 package lib;
 
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.connection.ConnectionState;
+import io.appium.java_client.android.connection.ConnectionStateBuilder;
 import io.qameta.allure.Step;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.openqa.selenium.ScreenOrientation;
+import org.openqa.selenium.interactions.touch.TouchActions;
+import org.openqa.selenium.mobile.NetworkConnection;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.io.FileOutputStream;
+import java.sql.Connection;
 import java.time.Duration;
 import java.util.Properties;
+import org.openqa.selenium.interactions.Actions;
 
 public class CoreTestCase  {//
     protected RemoteWebDriver driver;
@@ -89,5 +97,25 @@ public class CoreTestCase  {//
             e.printStackTrace();
         }
     }
+    public void wifiSwitch() throws InterruptedException {
+        TouchActions action = new TouchActions(driver);
+        NetworkConnection mobileDriver = (NetworkConnection) driver;
+        if (mobileDriver.getNetworkConnection() != NetworkConnection.ConnectionType.ALL) {
+            // enabling Airplane mode
+            mobileDriver.setNetworkConnection(NetworkConnection.ConnectionType.ALL);
+        }else { mobileDriver.setNetworkConnection(NetworkConnection.ConnectionType.NONE);
+
+        }
+    }
+
+    public void wifiOn() throws InterruptedException {
+
+    }
+
+    public void toggleWifi() throws InterruptedException {
+        ((AndroidDriver) driver).toggleWifi();
+        Thread.sleep(5000);
+    }
+
 
 }
