@@ -34,7 +34,7 @@ abstract public class MarketWatchPageObject extends MainPageObject {
     }
 
     public void marketwatchScreenIsOpen() throws InterruptedException {Thread.sleep(1000);
-    this.waitForElementPresent(START_TUTORIAL,"Cannot find Start tutorial button",120);
+    this.waitForElementPresent(BLUE_BUTTON,"cannot find blue button",20);
     }
     public void clickStartTutorial()
     {
@@ -63,14 +63,12 @@ abstract public class MarketWatchPageObject extends MainPageObject {
         this.waitForElementAndClick(ccy_pair_name_xpath,"Cannot find  CCY_PAIR_NAME text",10);
 
     }
-    public void ccyPairLineIsInSelectedState(String ccypairname)
+    public void ccyPairIsInSelectedState()
     {
-        String ccy_pair_name_xpath = getCcyPairName(ccypairname);
-        this.assertGetAttribute(ccy_pair_name_xpath,"selected","true","Ccy pair line not in selected state",10);
+        this.assertGetAttribute(CCY_PAIR_NAME2,"selected","true","Ccy pair line not in selected state",10);
     }
     public void clickCcyName2 () throws InterruptedException {//Thread.sleep(5000);
-    this.tryClickElement(CCY_PAIR_NAME2,"Cannot find  CCY_PAIR_NAME2 text");
-
+    this.tryClickElementSomeTimes(CCY_PAIR_NAME2,"Cannot find  CCY_PAIR_NAME2 text",10);
     }
     public void clickMenu()
     {

@@ -4,7 +4,8 @@ import org.junit.runners.Suite;
 import tests.*;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-        SignInUpTests.class
+        SignInUpTests.class,
+        MarketwatchTests.class
 })
 public class TestSuite {
 }

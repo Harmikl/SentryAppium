@@ -30,6 +30,7 @@ public class AndroidLoginPageObject extends LoginPageObject {
                 ERROR_INVALID_PASSWORD="id:com.sentryd.trade:id/decription_password";
                 INCORRECT_LOGIN_ERROR_FOR_REAL_ACC="xpath://*[contains(@text,'Incorrect Login. Please try again or contact customer service.')]";
                 INCORRECT_LOGIN_ERROR_FOR_DEMO_ACC="xpath://*[contains(@text,'Demo account expired')]";
+                LOADING_DIALOG="xpath:/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout";
     }
 
     public AndroidLoginPageObject (RemoteWebDriver driver)

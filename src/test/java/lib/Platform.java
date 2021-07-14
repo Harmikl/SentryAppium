@@ -66,7 +66,7 @@ public class Platform {
         capabilities.setCapability("automationName", "Appium");
         capabilities.setCapability("appPackage", "com.sentryd.trade");
         capabilities.setCapability("appActivity", ".ui.activity.SplashActivity");
-        capabilities.setCapability("app", "C:/Users/kharmak/Desktop/SentryprodRelease.apk");//windows Sentry developDebug_2.139.0.apk
+        capabilities.setCapability("app", "C:/Users/kharmak/Desktop/Sentry prodRelease_2.140.0.apk");
         //capabilities.setCapability("app", "/Users/maksimkharmak/Desktop/Sentry prodRelease_2.138.2.apk");// macos
         //capabilities.setCapability("udid", "1c88f784220d7ece");
        // capabilities.setCapability("udid", "f87b129e");//мой

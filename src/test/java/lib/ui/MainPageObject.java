@@ -282,16 +282,16 @@ public class MainPageObject {
         }
     }
 
-    public void tryClickElementSomeTimes(String locator, String error_message, int amount_of_attempts) {
+    public void tryClickElementSomeTimes(String locator, String error_message, int amount_of_attempts) throws InterruptedException {
         int current_attempts = 0;
         boolean need_more_attempts = true;
         while (need_more_attempts) {
             try {
-                this.clickElement(locator, error_message, 100);
+                this.waitForElementAndClick(locator, error_message, 3);
                 need_more_attempts = false;
-            } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+            } catch (Exception e) {
                 if (current_attempts > amount_of_attempts){
-                this.clickElement(locator, error_message, 100);
+                this.waitForElementAndClick(locator, error_message, 3);
               }
             }
             System.out.println(current_attempts);
@@ -421,7 +421,7 @@ public class MainPageObject {
         String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
         StringBuilder salt = new StringBuilder();
         Random rnd = new Random();
-        while (salt.length() < 10) { // length of the random string.
+        while (salt.length() < 6) { // length of the random string.
             int index = (int) (rnd.nextFloat() * SALTCHARS.length());
             salt.append(SALTCHARS.charAt(index));
         }

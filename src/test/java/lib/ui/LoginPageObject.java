@@ -28,7 +28,8 @@ abstract public class LoginPageObject extends MainPageObject{
     ERROR_INVALID_EMAIL_FORMAT,
     ERROR_INVALID_PASSWORD,
     INCORRECT_LOGIN_ERROR_FOR_REAL_ACC,
-    INCORRECT_LOGIN_ERROR_FOR_DEMO_ACC;
+    INCORRECT_LOGIN_ERROR_FOR_DEMO_ACC,
+    LOADING_DIALOG;
 
     public LoginPageObject (RemoteWebDriver driver)
     {
@@ -109,9 +110,9 @@ abstract public class LoginPageObject extends MainPageObject{
         this.waitForElementAndSendKeys(PASSWORD_LOGIN,password,"Cannot enter password in password input",10);
     }
 
-    public void clickLogin()
-    {
+    public void clickLogin() throws InterruptedException {
         this.waitForElementAndClick(LOGIN,"Cannot click login button",10);
+        Thread.sleep(3000);
     }
 
     public void clickCreateAccount()
@@ -181,6 +182,10 @@ abstract public class LoginPageObject extends MainPageObject{
     public void IncorrectLoginErrorForDemoAccIsShown()
     {
         this.waitForElementPresent(INCORRECT_LOGIN_ERROR_FOR_DEMO_ACC,"Cannot find error for incorrect real email",15);
+    }
+    public void LoadingDialogIsOpen()
+    {
+        this.waitForElementPresent(LOADING_DIALOG, "dialog is not shown",10);
     }
 
     public void demoRegistrationScreenIsOpen() {

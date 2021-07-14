@@ -73,6 +73,7 @@ public class SignInUpTests extends CoreTestCase {
         RealRegistrationPageObject.tapOnFinalRegisterSkip();
 
         MarketWatchPageObject MarketWatchPageObject = MarketwatchPageObjectFactory.get(driver);
+        MarketWatchPageObject.clickSkipTutorial();
         MarketWatchPageObject.marketwatchScreenIsOpen();
     }
 
@@ -103,6 +104,7 @@ public class SignInUpTests extends CoreTestCase {
         RealRegistrationPageObject.closeDepositWebView();
 
         MarketWatchPageObject MarketWatchPageObject = MarketwatchPageObjectFactory.get(driver);
+        MarketWatchPageObject.clickSkipTutorial();
         MarketWatchPageObject.marketwatchScreenIsOpen();
     }
 
@@ -150,13 +152,11 @@ public class SignInUpTests extends CoreTestCase {
         ChoseAccountPageObject.clickDemoAccountType();
 
         MarketWatchPageObject MarketWatchPageObject = MarketwatchPageObjectFactory.get(driver);
-        MarketWatchPageObject.marketwatchScreenIsOpen();
         MarketWatchPageObject.clickStartTutorial();
         MarketWatchPageObject.onboardingTutorialIsOpen();
     }
     @Test
-    public void invalidCredentialsErrors()
-    {
+    public void invalidCredentialsErrors() throws InterruptedException {
         LoginPageObject LoginPageObject= LoginPageObjectFactory.get(driver);
         LoginPageObject.clickSplashLogin();
         LoginPageObject.enterIncorrectRealEmail();

@@ -24,7 +24,7 @@ public class AndroidMarketwatchPageObject extends MarketWatchPageObject {
         ASK_COLUMN_TITLE="xpath://*[contains(@text,'Ask')]";
         BID_COLUMN_TITLE="xpath://*[contains(@text,'Bid')]";
         CCY_PAIR_NAME ="xpath://*[contains(@text,'{PAIRNAME}')]";
-        CCY_PAIR_NAME2="xpath://android.widget.LinearLayout[1]/android.widget.LinearLayout/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[2]/android.widget.TextView";
+        CCY_PAIR_NAME2="xpath:/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.view.ViewGroup/android.widget.LinearLayout[1]/android.widget.LinearLayout/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[3]/android.widget.TextView";
         CHART_ONLY="xpath://android.widget.LinearLayout/androidx.viewpager.widget.ViewPager/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]";
     }
 
