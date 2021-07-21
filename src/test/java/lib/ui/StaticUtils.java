@@ -4,7 +4,6 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.util.Random;
 
-import static lib.ui.LoginPageObject.PASSWORD_INPUT;
 
 public class StaticUtils extends MainPageObject{
     public StaticUtils(RemoteWebDriver driver) {
