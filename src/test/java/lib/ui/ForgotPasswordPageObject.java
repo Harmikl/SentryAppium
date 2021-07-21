@@ -46,7 +46,7 @@ public class ForgotPasswordPageObject extends MainPageObject {
         this.waitForElementAndClick(SUBMIT_FORGOT_PASSWORD_BUTTON,"Cannot click submit button", 10);
     }
     public void emailIsSent() throws InterruptedException {
-        Thread.sleep(1000);
+        Thread.sleep(3000);
         this.assertGetAttribute(EMAIL_SENT,"text","Email Sent","Cannot find 'Email sent'",10);
         this.assertGetAttribute(EMAIL_SENT_DESCRIPTION,"text","Thank you. We have sent you an email with instructions for resetting your password.","Cannot find Email sent description",10);
     }

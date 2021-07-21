@@ -417,7 +417,35 @@ public class MainPageObject {
         return bytes;
     }
 
+    public boolean currentOrientation(@SuppressWarnings("rawtypes") AppiumDriver driver) {
+        driver = (AppiumDriver) this.driver;
+        String screenOrientation = driver.getOrientation().name();
+        ScreenOrientation orientation = ScreenOrientation.valueOf(screenOrientation);
+        if (orientation == ScreenOrientation.PORTRAIT) {
+            System.out.println("Current screen orientation is portrait");
+            return true;
 
+        } else {
+            System.out.println("Current screen orientation is Landscape");
+
+            return false;
+        }
+
+    }
+    public void assertPortraitScreenOrientation(String PORTRAITorLANDSCAPE){
+        AppiumDriver driver = (AppiumDriver) this.driver;
+        String screenOrientation = driver.getOrientation().name();
+        ScreenOrientation orientation = ScreenOrientation.valueOf(screenOrientation);
+        System.out.println(screenOrientation);
+       Assert.assertTrue(screenOrientation ==PORTRAITorLANDSCAPE);
+    }
+
+    public void assertLandscapeScreenOrientation(){
+        AppiumDriver driver = (AppiumDriver) this.driver;
+        String screenOrientation = driver.getOrientation().name();
+        ScreenOrientation orientation = ScreenOrientation.valueOf(screenOrientation);
+        Assert.assertEquals("orientation is wrong",orientation == ScreenOrientation.PORTRAIT,orientation);
+    }
 }
 
 

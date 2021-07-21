@@ -96,6 +96,7 @@ abstract public class LoginPageObject extends MainPageObject{
     public void enterEmailRegister()
     {
         this.waitForElementAndSendKeys(EMAIL_INPUT, GENERATED_EMAIL,"Cannot enter email in input field",10);
+        System.out.println(GENERATED_EMAIL);
     }
 
     public void enterPasswordRegister()

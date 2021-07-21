@@ -2,8 +2,6 @@ package lib;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.connection.ConnectionState;
-import io.appium.java_client.android.connection.ConnectionStateBuilder;
 import io.qameta.allure.Step;
 import org.junit.After;
 import org.junit.Assert;
@@ -14,7 +12,6 @@ import org.openqa.selenium.mobile.NetworkConnection;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.io.FileOutputStream;
-import java.sql.Connection;
 import java.time.Duration;
 import java.util.Properties;
 import org.openqa.selenium.interactions.Actions;
@@ -117,5 +114,17 @@ public class CoreTestCase  {//
         Thread.sleep(5000);
     }
 
+    public void deviceIsInPortraitOrientation(){
+        AppiumDriver driver = (AppiumDriver) this.driver;
+        String screenOrientation = driver.getOrientation().name();
+        ScreenOrientation orientation = ScreenOrientation.valueOf(screenOrientation);
+        Assert.assertEquals("orientation is wrong",orientation == ScreenOrientation.PORTRAIT,true);
+    }
+    public void deviceIsInLandscapeOrientation(){
+        AppiumDriver driver = (AppiumDriver) this.driver;
+        String screenOrientation = driver.getOrientation().name();
+        ScreenOrientation orientation = ScreenOrientation.valueOf(screenOrientation);
+        Assert.assertEquals("orientation is wrong",orientation == ScreenOrientation.LANDSCAPE,true);
+    }
 
 }

@@ -51,12 +51,14 @@ public class SignInUpTests extends CoreTestCase {
     @Test
     public void realRegistrationAndTapSkip() throws InterruptedException {
         LoginPageObject LoginPageObject= LoginPageObjectFactory.get(driver);
+        deviceIsInPortraitOrientation();
         LoginPageObject.clickSplashReal();
         LoginPageObject.enterEmailRegister();
         LoginPageObject.enterPasswordRegister();
         LoginPageObject.clickCreateAccount();
 
         RealRegistrationPageObject RealRegistrationPageObject = RealRegistrationPageObjectFactory.get(driver);
+        deviceIsInPortraitOrientation();
         RealRegistrationPageObject.enterData1stWebView();
         RealRegistrationPageObject.enterData2ndWebView();
         RealRegistrationPageObject.enterData3rdWebView();
@@ -80,12 +82,14 @@ public class SignInUpTests extends CoreTestCase {
     @Test
     public void realRegistrationAndTapDeposit() throws InterruptedException {
         LoginPageObject LoginPageObject= LoginPageObjectFactory.get(driver);
+        deviceIsInPortraitOrientation();
         LoginPageObject.clickSplashReal();
         LoginPageObject.enterEmailRegister();
         LoginPageObject.enterPasswordRegister();
         LoginPageObject.clickCreateAccount();
 
         RealRegistrationPageObject RealRegistrationPageObject = RealRegistrationPageObjectFactory.get(driver);
+        deviceIsInPortraitOrientation();
         RealRegistrationPageObject.enterData1stWebView();
         RealRegistrationPageObject.enterData2ndWebView();
         RealRegistrationPageObject.enterData3rdWebView();
@@ -178,5 +182,13 @@ public class SignInUpTests extends CoreTestCase {
 
         RealRegistrationPageObject RealRegistrationPageObject = RealRegistrationPageObjectFactory.get(driver);
         RealRegistrationPageObject.realRegistrationWebviewIsOpen();
+    }
+
+    @Test
+    public void test(){
+        LoginPageObject LoginPageObject= LoginPageObjectFactory.get(driver);
+        deviceIsInPortraitOrientation();
+        LoginPageObject.clickSplashLogin();
+        LoginPageObject.enterIncompleteRegistrationEmail();
     }
 }

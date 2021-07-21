@@ -23,7 +23,6 @@ public class MarketwatchTests extends CoreTestCase {
     ChoseAccountPageObject.chooseAccountIsOpen();
     ChoseAccountPageObject.clickDemoAccountType();
 
-    //LoginPageObject.LoadingDialogIsOpen();
 
     MarketWatchPageObject MarketWatchPageObject = MarketwatchPageObjectFactory.get(driver);
     MarketWatchPageObject.clickSkipTutorial();
