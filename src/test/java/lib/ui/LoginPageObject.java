@@ -2,6 +2,8 @@ package lib.ui;
 
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+import static lib.ui.StaticUtils.*;
+
 abstract public class LoginPageObject extends MainPageObject{
     protected static String
     SPLASH_DEMO_ACCOUNT,
@@ -93,21 +95,18 @@ abstract public class LoginPageObject extends MainPageObject{
 
     public void enterEmailRegister()
     {
-        String email= this.getGeneratedEmail()+"@gmail.com";
-        this.waitForElementAndSendKeys(EMAIL_INPUT,email,"Cannot enter email in input field",10);
+        this.waitForElementAndSendKeys(EMAIL_INPUT, GENERATED_EMAIL,"Cannot enter email in input field",10);
     }
 
     public void enterPasswordRegister()
     {
-        String password = "Qwe12345";
-        this.waitForElementAndSendKeys(PASSWORD_INPUT,password,"Cannot enter password in input field",10);
+        this.waitForElementAndSendKeys(PASSWORD_INPUT,PASSWORD,"Cannot enter password in input field",10);
     }
 
     public void enterMyEmailAndPassword()
-    {String email = "qwe2@qwe.qwe";
-    String password = "55555tTt";
-        this.waitForElementAndSendKeys(EMAIL_LOGIN,email,"Cannot enter email in email input",10);
-        this.waitForElementAndSendKeys(PASSWORD_LOGIN,password,"Cannot enter password in password input",10);
+    {
+        this.waitForElementAndSendKeys(EMAIL_LOGIN,MY_EMAIL,"Cannot enter email in email input",10);
+        this.waitForElementAndSendKeys(PASSWORD_LOGIN,MY_PASSWORD,"Cannot enter password in password input",10);
     }
 
     public void clickLogin() throws InterruptedException {
@@ -143,7 +142,7 @@ abstract public class LoginPageObject extends MainPageObject{
 
     public void enterExistingEmail()
     {
-        this.waitForElementAndSendKeys(EMAIL_INPUT,"qwe2@qwe.qwe","Cannot enter exist email",10);
+        this.waitForElementAndSendKeys(EMAIL_INPUT,EXISTING_EMAIL,"Cannot enter exist email",10);
     }
 
     public void clickSignUpLogin()
@@ -155,24 +154,20 @@ abstract public class LoginPageObject extends MainPageObject{
         this.waitForElementAndClick(FORGOT_PASSWORD,"Cannot find and click forgot password on login screen",10);
     }
     public void enterIncorrectRealEmail()
-    {String email = "qwe2@qwee.qwe";
-        String password = "55555tTt";
-        this.waitForElementAndSendKeys(EMAIL_LOGIN,email,"Cannot enter email in email input",10);
-        this.waitForElementAndSendKeys(PASSWORD_LOGIN,password,"Cannot enter password in password input",10);
+    {
+        this.waitForElementAndSendKeys(EMAIL_LOGIN,INCORRECT_REAL_EMAIL,"Cannot enter email in email input",10);
+        this.waitForElementAndSendKeys(PASSWORD_LOGIN,MY_PASSWORD,"Cannot enter password in password input",10);
     }
     public void enterIncorrectDemoEmail()
-    {String email = "500103660";
-        String password = "55555tTt";
-        this.waitForElementAndSendKeys(EMAIL_LOGIN,email,"Cannot enter email in email input",10);
-        this.waitForElementAndSendKeys(PASSWORD_LOGIN,password,"Cannot enter password in password input",10);
+    {
+        this.waitForElementAndSendKeys(EMAIL_LOGIN,INCORRECT_DEMO_EMAIL,"Cannot enter email in email input",10);
+        this.waitForElementAndSendKeys(PASSWORD_LOGIN,PASSWORD,"Cannot enter password in password input",10);
     }
 
     public void enterIncompleteRegistrationEmail()
     {
-        String email = "qwe1@qwe.qwe";
-        String password = "55555tTt";
-        this.waitForElementAndSendKeys(EMAIL_LOGIN,email,"Cannot enter email in email input",10);
-        this.waitForElementAndSendKeys(PASSWORD_LOGIN,password,"Cannot enter password in password input",10);
+        this.waitForElementAndSendKeys(EMAIL_LOGIN,INCOMPLETE_REGISTER_EMAIL,"Cannot enter email in email input",10);
+        this.waitForElementAndSendKeys(PASSWORD_LOGIN,PASSWORD,"Cannot enter password in password input",10);
     }
 
     public void IncorrectLoginErrorForRealAccIsShown()
