@@ -13,7 +13,7 @@ public class AndroidChoseAccountPageObject extends ChoseAccountPageObject {
         CLOSE_ICON="id:com.sentryd.trade:id/close_view";
         TYPE_OF_ACCOUNT_DEMO="xpath://*[contains(@text,'DEMO')]";
         TYPE_OF_ACCOUNT_REAL="xpath://*[contains(@text,'REAL')]";
-        ACCOUNT_NUMBER="xpath://android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout/android.widget.TextView[1]";
+        ACCOUNT_NUMBER_XPATH ="xpath://*[contains(@text,'{ACCOUNTTYPE}')]/..//*[@resource-id='com.sentryd.trade:id/tv_id']";
         CHOOSE_ACCOUNT_VIEW="xpath://android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup";
 
     }

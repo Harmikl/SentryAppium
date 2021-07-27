@@ -5,6 +5,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import java.util.Random;
 
 
+
 public class StaticUtils extends MainPageObject{
     public StaticUtils(RemoteWebDriver driver) {
         super(driver);
@@ -19,6 +20,7 @@ public class StaticUtils extends MainPageObject{
             MY_EMAIL = "qwe2@qwe.qwe",
             MY_PASSWORD = "55555tTt",
             PASSWORD = "Qwe12345";
+
 
 
     public static String getGeneratedEmail() {

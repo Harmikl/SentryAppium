@@ -185,10 +185,13 @@ public class SignInUpTests extends CoreTestCase {
     }
 
     @Test
-    public void test(){
+    public void test() throws InterruptedException {
         LoginPageObject LoginPageObject= LoginPageObjectFactory.get(driver);
-        deviceIsInPortraitOrientation();
         LoginPageObject.clickSplashLogin();
-        LoginPageObject.enterIncompleteRegistrationEmail();
+        LoginPageObject.enterMyEmailAndPassword();
+        LoginPageObject.clickLogin();
+
+        ChoseAccountPageObject ChoseAccountPageObject = ChoseAccountPageObjectFactory.get(driver);
+        ChoseAccountPageObject.clickAccountTypeAndGetAccountNumber("DEMO");
     }
 }

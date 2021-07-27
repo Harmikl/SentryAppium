@@ -184,6 +184,7 @@ abstract public class LoginPageObject extends MainPageObject{
         this.waitForElementPresent(LOADING_DIALOG, "dialog is not shown",10);
     }
 
+
     public void demoRegistrationScreenIsOpen() {
         this.demoTabIsSelected();
         this.emailAndPasswordHintsAreShown();
