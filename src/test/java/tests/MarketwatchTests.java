@@ -20,13 +20,13 @@ public class MarketwatchTests extends CoreTestCase {
     LoginPageObject.clickLogin();
 
     ChoseAccountPageObject ChoseAccountPageObject = ChoseAccountPageObjectFactory.get(driver);
-    ChoseAccountPageObject.chooseAccountIsOpen();
-    ChoseAccountPageObject.clickDemoAccountType();
+    ChoseAccountPageObject.clickAndGetAccountTypeAndAccountNumber("DEMO");
 
 
     MarketWatchPageObject MarketWatchPageObject = MarketwatchPageObjectFactory.get(driver);
     MarketWatchPageObject.clickSkipTutorial();
     MarketWatchPageObject.marketwatchScreenIsOpen();
+    MarketWatchPageObject.compareAccountIdWithIdOnBlueButton();
     MarketWatchPageObject.clickChartOnly();
 
     TradeScreenPageObject TradeScreenPageObject = TradeScreenPageObjectFactory.get(driver);

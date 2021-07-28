@@ -192,6 +192,6 @@ public class SignInUpTests extends CoreTestCase {
         LoginPageObject.clickLogin();
 
         ChoseAccountPageObject ChoseAccountPageObject = ChoseAccountPageObjectFactory.get(driver);
-        ChoseAccountPageObject.clickAccountTypeAndGetAccountNumber("DEMO");
+        ChoseAccountPageObject.clickAndGetAccountTypeAndAccountNumber("DEMO");
     }
 }

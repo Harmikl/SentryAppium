@@ -1,5 +1,7 @@
 package lib.ui;
 
+import lib.ui.factories.ChoseAccountPageObjectFactory;
+import org.junit.Assert;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 abstract public class MarketWatchPageObject extends MainPageObject {
@@ -33,15 +35,14 @@ abstract public class MarketWatchPageObject extends MainPageObject {
         super(driver);
     }
 
-    public void marketwatchScreenIsOpen() throws InterruptedException {Thread.sleep(1000);
-    this.waitForElementPresent(BLUE_BUTTON,"cannot find blue button",20);
+    public void marketwatchScreenIsOpen() {
+    this.waitForElementPresent(BLUE_BUTTON,"cannot find blue button",30);
     }
     public void clickStartTutorial()
     {
         this.waitForElementAndClick(START_TUTORIAL,"Cannot find Start tutorial button",120);
     }
-    public void clickSkipTutorial() throws InterruptedException {
-        Thread.sleep(10000);
+    public void clickSkipTutorial()  {
         this.waitForElementAndClick(SKIP_TUTORIAL,"Cannot find and click Skip tutorial button",60);
     }
     public void clickCloseTutorial()
@@ -53,23 +54,16 @@ abstract public class MarketWatchPageObject extends MainPageObject {
         this.waitForElementPresent(ONBOARDING_TUTORIAL,"Cannot find  tutorial ",120);
         this.waitForElementPresent(TEXT_TUTORIAL_ON_FIRST_PAGE,"Cannot find  first text ",120);
     }
-    public String getCcyPairName(String ccypairname)
-    {
-        return CCY_PAIR_NAME2.replace("{PAIRNAME}",ccypairname);
-    }
-    public void clickCcyPairName(String ccypairname) throws InterruptedException {
-        String ccy_pair_name_xpath = getCcyPairName(ccypairname);
-        System.out.println(ccy_pair_name_xpath);
-        this.waitForElementAndClick(ccy_pair_name_xpath,"Cannot find  CCY_PAIR_NAME text",10);
 
+    String accountIdOnBlueButton;
+    public void compareAccountIdWithIdOnBlueButton(){
+        ChoseAccountPageObject ChoseAccountPageObject =  new ChoseAccountPageObject(driver);
+       this.accountIdOnBlueButton = this.waitForElementAndGetAttribute(ACCOUNT_NUMBER_ON_BLUE_BUTTON,"text","Cannot get type of account on blue button",10);
+        System.out.println(ChoseAccountPageObject.accountNumber);
+        System.out.println(accountIdOnBlueButton);
+        Assert.assertEquals(ChoseAccountPageObject.accountNumber,accountIdOnBlueButton);
     }
-    public void ccyPairIsInSelectedState()
-    {
-        this.assertGetAttribute(CCY_PAIR_NAME2,"selected","true","Ccy pair line not in selected state",10);
-    }
-    public void clickCcyName2 () throws InterruptedException {//Thread.sleep(5000);
-    this.tryClickElementSomeTimes(CCY_PAIR_NAME2,"Cannot find  CCY_PAIR_NAME2 text",10);
-    }
+
     public void clickMenu()
     {
         this.waitForElementAndClick(MENU,"Cannot click menu",10);

@@ -110,9 +110,8 @@ abstract public class LoginPageObject extends MainPageObject{
         this.waitForElementAndSendKeys(PASSWORD_LOGIN,MY_PASSWORD,"Cannot enter password in password input",10);
     }
 
-    public void clickLogin() throws InterruptedException {
+    public void clickLogin()  {
         this.waitForElementAndClick(LOGIN,"Cannot click login button",10);
-        Thread.sleep(3000);
     }
 
     public void clickCreateAccount()
@@ -224,4 +223,6 @@ abstract public class LoginPageObject extends MainPageObject{
         this.waitForElementPresent(FORGOT_PASSWORD,"Cannot find forgot password button",10);
         this.waitForElementPresent(SIGN_UP,"Cannot find sign up button",10);
     }
+
+
 }

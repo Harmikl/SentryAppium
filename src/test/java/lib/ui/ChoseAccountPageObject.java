@@ -2,7 +2,7 @@ package lib.ui;
 
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-public abstract class ChoseAccountPageObject extends MainPageObject{
+public  class ChoseAccountPageObject extends MainPageObject{
     public ChoseAccountPageObject(RemoteWebDriver driver) {
         super(driver);
     }
@@ -37,12 +37,16 @@ public abstract class ChoseAccountPageObject extends MainPageObject{
         this.waitForElementAndClick(TYPE_OF_ACCOUNT_REAL,"Cannot find real account type",10);
     }
 
-    public String clickAccountTypeAndGetAccountNumber(String accountType){
-        String accountNumberXpath = ACCOUNT_NUMBER_XPATH.replace("{ACCOUNTTYPE}",accountType); //enterAccountType(accountType);//this.waitForElementAndGetAttribute(ACCOUNT_NUMBER,"text","cannot get attribute",10);
-        String accountNumber = this.waitForElementAndGetAttribute(accountNumberXpath,"text","cannot get attribute in "+accountNumberXpath,10);
-        System.out.println(accountNumber);
-        return accountNumber;
+    String accountNumber;
+    public void clickAndGetAccountTypeAndAccountNumber(String accountType){
+        String accountNumberXpath = ACCOUNT_NUMBER_XPATH.replace("{ACCOUNTTYPE}",accountType);
+        this.accountNumber = this.waitForElementAndGetAttribute(accountNumberXpath,"text","cannot get attribute in "+accountNumberXpath,10);
+        this.waitForElementAndClick(accountNumberXpath,"Cannot click account type",10);
     }
+
+
+
+
 
 }
 

@@ -16,7 +16,7 @@ public class Platform {
     private static final String PLATFORM_IOS = "ios";
     private static final String PLATFORM_ANDROID = "android";
     private static final String PLATFORM_MOBILE_WEB="mobile_web";
-    private static final String APPIUM_URL = "http://127.0.0.1:4723/wd/hub";
+    private static final String APPIUM_URL = "http://127.0.0.1:4723/wd/hub"; //создали статические переменные типа стринг
 
     private static Platform instance;
 
@@ -29,7 +29,7 @@ public class Platform {
             instance=new Platform();
         }
         return instance;
-    }
+    }  // применили паттерн singleton
 
     public RemoteWebDriver getDriver() throws Exception
     {
@@ -42,9 +42,9 @@ public class Platform {
             return new ChromeDriver(this.getMwChromeOptions());
         } else {
             throw new Exception("Cannot detect type of driver. Platform value "+this.getPlatformVar());
-        }
+        }  //ссылаем на соответствующие капабилити и url в зависимости от платфотрмы
     }
-    public boolean isAndroid()
+    public boolean isAndroid()  //булевы переменные. Проверяем какая платформа у нас
     {
         return isPlatform(PLATFORM_ANDROID);
     }
@@ -68,7 +68,7 @@ public class Platform {
         capabilities.setCapability("appActivity", ".ui.activity.SplashActivity");
         capabilities.setCapability("app", "C:/Users/kharmak/Desktop/Sentry prodRelease_2.140.0.apk");
         //capabilities.setCapability("app", "/Users/maksimkharmak/Desktop/Sentry prodRelease_2.138.2.apk");// macos
-        //capabilities.setCapability("udid", "1c88f784220d7ece");
+        capabilities.setCapability("udid", "1c88f784220d7ece");
        // capabilities.setCapability("udid", "f87b129e");//мой
         return capabilities;
     }

@@ -142,7 +142,6 @@ public class MainPageObject {
         } else {
             System.out.println("Method swipeUp do nothing for platform " + Platform.getInstance().getPlatformVar());
         }
-
     }
 
     public void swipeUpQuick() {
