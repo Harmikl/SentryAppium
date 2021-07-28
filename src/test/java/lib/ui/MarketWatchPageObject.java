@@ -1,6 +1,5 @@
 package lib.ui;
 
-import lib.ui.factories.ChoseAccountPageObjectFactory;
 import org.junit.Assert;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -59,9 +58,9 @@ abstract public class MarketWatchPageObject extends MainPageObject {
     public void compareAccountIdWithIdOnBlueButton(){
         ChoseAccountPageObject ChoseAccountPageObject =  new ChoseAccountPageObject(driver);
        this.accountIdOnBlueButton = this.waitForElementAndGetAttribute(ACCOUNT_NUMBER_ON_BLUE_BUTTON,"text","Cannot get type of account on blue button",10);
-        System.out.println(ChoseAccountPageObject.accountNumber);
+        System.out.println(ChoseAccountPageObject.accountId);
         System.out.println(accountIdOnBlueButton);
-        Assert.assertEquals(ChoseAccountPageObject.accountNumber,accountIdOnBlueButton);
+        Assert.assertEquals(ChoseAccountPageObject.accountId,accountIdOnBlueButton);
     }
 
     public void clickMenu()

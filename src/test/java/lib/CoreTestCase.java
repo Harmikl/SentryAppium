@@ -26,7 +26,6 @@ public class CoreTestCase  {//
         driver = Platform.getInstance().getDriver();
         this.createAllurePropertyFile();
         this.rotateScreenPortrait();
-        this.openWikiWebPageForMobileWeb();
     }
 @After
 @Step("Remove driver and session")
@@ -70,15 +69,6 @@ public class CoreTestCase  {//
         driver.navigate().back();
     }
 
-    @Step("Open wiki page for mobile web(this method does nothing for android and ios)")
-    protected void openWikiWebPageForMobileWeb()
-    {
-        if (Platform.getInstance().isMw()){
-            driver.get("https://en.m.wikipedia.org");
-        }else {
-            System.out.println("Method openWikiWebPageForMobileWeb do nothing for platform "+Platform.getInstance().getPlatformVar());
-        }
-    }
 
     private void createAllurePropertyFile()
     {

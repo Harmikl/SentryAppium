@@ -5,7 +5,6 @@ import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import lib.Platform;
-import lib.ui.factories.ChoseAccountPageObjectFactory;
 import org.junit.Assert;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -50,7 +49,7 @@ public abstract class MenuPageObject extends MainPageObject{
     }
     public void compareAccountNumberFromChooseAccountAndMenu(){
         ChoseAccountPageObject choseAccountPageObject = new ChoseAccountPageObject(driver);
-        Assert.assertEquals(accountNumber,choseAccountPageObject.accountNumber);
+        Assert.assertEquals(accountNumber,choseAccountPageObject.accountId);
     }
 
     public void openMenu(){
