@@ -48,8 +48,8 @@ public abstract class MenuPageObject extends MainPageObject{
         return accountNumber;
     }
     public void compareAccountNumberFromChooseAccountAndMenu(){
-        ChoseAccountPageObject choseAccountPageObject = new ChoseAccountPageObject(driver);
-        Assert.assertEquals(accountNumber,choseAccountPageObject.accountId);
+        ChoseAccountPageObject ChoseAccountPageObject = new ChoseAccountPageObject(driver);
+        Assert.assertEquals(accountNumber,ChoseAccountPageObject.accountId);
     }
 
     public void openMenu(){

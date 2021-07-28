@@ -38,10 +38,11 @@ public  class ChoseAccountPageObject extends MainPageObject{
     }
 
     String accountId;
-    public void clickAndGetAccountTypeAndAccountNumber(String accountType){
+    public String clickAndGetAccountTypeAndAccountNumber(String accountType){
         String accountNumberXpath = ACCOUNT_NUMBER_XPATH.replace("{ACCOUNTTYPE}",accountType);
         this.accountId = this.waitForElementAndGetAttribute(accountNumberXpath,"text","cannot get attribute in "+accountNumberXpath,10);
         this.waitForElementAndClick(accountNumberXpath,"Cannot click account type",10);
+        return accountId;
     }
 
 
