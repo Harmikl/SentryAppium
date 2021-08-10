@@ -36,7 +36,7 @@ public class MarketwatchTests extends CoreTestCase {
     TradeScreenPageObject.chartOnlyScreenIsOpen();
 }
 @Test
-    public void skipTutorial(){
+    public void skipTutorial() throws InterruptedException {
     LoginPageObject LoginPageObject= LoginPageObjectFactory.get(driver);
     ChoseAccountPageObject ChoseAccountPageObject = ChoseAccountPageObjectFactory.get(driver);
     MarketWatchPageObject MarketWatchPageObject = MarketwatchPageObjectFactory.get(driver);
@@ -48,6 +48,7 @@ public class MarketwatchTests extends CoreTestCase {
     LoginPageObject.clickLogin();
     ChoseAccountPageObject.clickAndGetAccountTypeAndAccountNumber("DEMO");
     MarketWatchPageObject.clickCloseTutorial();
+    MarketWatchPageObject.marketwatchScreenIsOpen();
     MarketWatchPageObject.clickChartOnly();
     TradeScreenPageObject.chartOnlyScreenIsOpen();
     MarketWatchPageObject.guideContainerIsNotOpen();
@@ -56,5 +57,24 @@ public class MarketwatchTests extends CoreTestCase {
     ChoseAccountPageObject.clickAndGetAccountTypeAndAccountNumber("DEMO");
     MarketWatchPageObject.marketwatchScreenIsOpen();
     MarketWatchPageObject.guideContainerIsNotOpen();
+}
+@Test
+    public void marketwatchBidAsk() throws InterruptedException {
+    LoginPageObject LoginPageObject= LoginPageObjectFactory.get(driver);
+    ChoseAccountPageObject ChoseAccountPageObject = ChoseAccountPageObjectFactory.get(driver);
+    MarketWatchPageObject MarketWatchPageObject = MarketwatchPageObjectFactory.get(driver);
+    TradeScreenPageObject TradeScreenPageObject =  TradeScreenPageObjectFactory.get(driver);
+
+    LoginPageObject.clickSplashLogin();
+    LoginPageObject.enterMyEmailAndPassword();
+    LoginPageObject.clickLogin();
+    ChoseAccountPageObject.clickAndGetAccountTypeAndAccountNumber("DEMO");
+    MarketWatchPageObject.clickCloseTutorial();
+    MarketWatchPageObject.clickAsk();
+    TradeScreenPageObject.buyButtonIsInSelected();
+    tapBackButton();
+    TradeScreenPageObject.goToMarketwatch();
+    MarketWatchPageObject.clickBid();
+    TradeScreenPageObject.sellButtonIsInSelected();
 }
 }

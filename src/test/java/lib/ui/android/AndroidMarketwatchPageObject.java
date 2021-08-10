@@ -8,7 +8,7 @@ public class AndroidMarketwatchPageObject extends MarketWatchPageObject {
                 MENU="id:com.sentryd.trade:id/logo";
         START_TUTORIAL="id:com.sentryd.trade:id/start_tutorial";
         SKIP_TUTORIAL="id:com.sentryd.trade:id/skip_tutorial";
-        CLOSE_TUTORIAL="id:com.sentryd.trade:id/close_view";
+        CLOSE_TUTORIAL="xpath:/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ImageView";
         ONBOARDING_TUTORIAL="xpath://android.view.ViewGroup/androidx.viewpager.widget.ViewPager/android.view.ViewGroup";
         TEXT_TUTORIAL_1 ="xpath://*[contains(@text,'Click any price to move to trading')]";
         TEXT_TUTORIAL_2 ="xpath://*[contains(@text,'Swipe the right panel for additional information, and Choose a Product')]";
@@ -19,7 +19,7 @@ public class AndroidMarketwatchPageObject extends MarketWatchPageObject {
         BLUE_BUTTON="id:com.sentryd.trade:id/acc_layout";
         TYPE_OF_ACCOUNT_ON_BLUE_BUTTON="id:com.sentryd.trade:id/tv_acc_title";
         ACCOUNT_NUMBER_ON_BLUE_BUTTON="id:com.sentryd.trade:id/tv_acc_descr";
-        ACCOUNT_VALUE="id:com.sentryd.trade:id/balance_layout";
+        ACCOUNT_VALUE="xpath://*[contains(@text,'ACCOUNT VALUE')]";
         ACCOUNT_VALUE_BALANCE="id:com.sentryd.trade:id/balance";
         TENOR_VIEW="id:com.sentryd.trade:id/spot_tenor_view";
         SOCKET_STATUS="id:com.sentryd.trade:id/socket_status";

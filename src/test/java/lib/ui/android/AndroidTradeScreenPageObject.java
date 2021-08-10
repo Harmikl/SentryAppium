@@ -32,5 +32,8 @@ public class AndroidTradeScreenPageObject extends TradeScreenPageObject {
         QUANTITY_MINUS="id:com.sentryd.trade:id/investment_minus";
         QUANTITY_PLUS="id:com.sentryd.trade:id/investment_plus";
         QUANTITY_TEXT="xpath://*[contains(@text,'QUANTITY')]";
+        BUY_BUTTON="id:com.sentryd.trade:id/ov_invest";
+        SELL_BUTTON ="id:com.sentryd.trade:id/ov_sell";
+        EXECUTE_TRADE_DIALOG_LAYOUT="xpath://hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout";
     }
 }

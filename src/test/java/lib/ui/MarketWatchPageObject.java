@@ -51,6 +51,11 @@ abstract public class MarketWatchPageObject extends MainPageObject {
 
     public void marketwatchScreenIsOpen() {
     this.waitForElementPresent(BLUE_BUTTON,"cannot find blue button",30);
+    this.waitForElementPresent(ACCOUNT_VALUE,"cannot find account value button",30);
+    this.waitForElementPresent(ACCOUNT_VALUE_BALANCE,"cannot find account balance",30);
+    this.waitForElementPresent(TENOR_VIEW,"cannot find tenor view slider",30);
+    this.waitForElementPresent(SOCKET_STATUS,"cannot find socket status",30);
+    this.waitForElementPresent(TIME,"cannot find socket status",30);
     }
     public void clickStartTutorial()
     {
@@ -59,8 +64,7 @@ abstract public class MarketWatchPageObject extends MainPageObject {
     public void clickSkipTutorial()  {
         this.waitForElementAndClick(SKIP_TUTORIAL,"Cannot find and click Skip tutorial button",60);
     }
-    public void clickCloseTutorial()
-    {
+    public void clickCloseTutorial()   {
         this.waitForElementAndClick(CLOSE_TUTORIAL,"Cannot find Start tutorial button",120);
     }
     public void onboardingTutorialIsOpen() {
@@ -129,6 +133,24 @@ abstract public class MarketWatchPageObject extends MainPageObject {
 
     public void clickChartOnly() {
         this.waitForElementAndClick(CHART_ONLY,"Cannot find chart only",10);
+    }
+
+    public void clickAsk() throws InterruptedException {
+        this.waitTillElementBeClickable(BLUE_BUTTON,"blue button is not clickable");
+        TouchAction action = new TouchAction((AppiumDriver)driver);
+        Dimension size = driver.manage().window().getSize();
+        int x =(int)(size.width*0.44);
+        int y = (int)(size.height * 0.23);
+        action.press(PointOption.point(x,y)).release().perform();
+    }
+
+    public void clickBid() throws InterruptedException {
+        Thread.sleep(4000);
+        TouchAction action = new TouchAction((AppiumDriver)driver);
+        Dimension size = driver.manage().window().getSize();
+        int x =(int)(size.width*0.29);
+        int y = (int)(size.height * 0.23);
+        action.press(PointOption.point(x,y)).release().perform();
     }
 
 }

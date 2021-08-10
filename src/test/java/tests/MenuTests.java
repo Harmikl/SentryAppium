@@ -14,7 +14,7 @@ import org.junit.Test;
 public class MenuTests extends CoreTestCase {
 
     @Test
-    public void compareAccountId()  {
+    public void compareAccountId() throws InterruptedException {
         LoginPageObject LoginPageObject= LoginPageObjectFactory.get(driver);
         LoginPageObject.clickSplashLogin();
         LoginPageObject.enterMyEmailAndPassword();
