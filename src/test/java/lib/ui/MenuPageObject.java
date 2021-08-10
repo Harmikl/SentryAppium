@@ -11,6 +11,8 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.time.Duration;
 
+import static lib.ui.ChoseAccountPageObject.accountId;
+
 public abstract class MenuPageObject extends MainPageObject{
     public MenuPageObject(RemoteWebDriver driver) {
         super(driver);
@@ -39,7 +41,7 @@ public abstract class MenuPageObject extends MainPageObject{
             APP_VERSION;
 
 
-    String accountNumber;
+    static String accountNumber;
 
     public String getAccountNumberInMenu(){
         this.accountNumber = this.waitForElementAndGetAttribute(MENU_ACCOUNT_ID,"text","cannot get text from account id in menu",10)
@@ -48,8 +50,10 @@ public abstract class MenuPageObject extends MainPageObject{
         return accountNumber;
     }
     public void compareAccountNumberFromChooseAccountAndMenu(){
-        ChoseAccountPageObject ChoseAccountPageObject = new ChoseAccountPageObject(driver);
-        Assert.assertEquals(accountNumber,ChoseAccountPageObject.accountId);
+        getAccountNumberInMenu();
+        Assert.assertEquals(accountNumber,accountId);
+        System.out.println(accountId);
+        System.out.println(accountNumber);
     }
 
     public void openMenu(){

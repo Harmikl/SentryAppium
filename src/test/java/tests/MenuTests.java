@@ -33,7 +33,7 @@ public class MenuTests extends CoreTestCase {
 //        MenuPageObject.closeMenu();
 //        MenuPageObject.openMenu();
         MenuPageObject.swipeUp(200);
-        MenuPageObject.appVersionIsRight("2.140.1");
+        MenuPageObject.appVersionIsRight("2.140.0");
         MenuPageObject.clickLogOut();
 
 

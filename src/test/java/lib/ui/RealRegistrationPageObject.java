@@ -87,8 +87,7 @@ abstract public class RealRegistrationPageObject extends MainPageObject {
 
     }
 
-    public void enterData4thWebView()
-    {
+    public void enterData4thWebView(){
         int number_of_tapping_numbers=0;
         while (number_of_tapping_numbers<7){
             this.waitForElementAndClick(NUMBER1_PHONE_NUMBER,"Cannot find and click number 1",5);

@@ -1,19 +1,13 @@
 package tests;
 
 import lib.CoreTestCase;
-import lib.ui.ChoseAccountPageObject;
-import lib.ui.LoginPageObject;
-import lib.ui.MarketWatchPageObject;
-import lib.ui.TradeScreenPageObject;
-import lib.ui.factories.ChoseAccountPageObjectFactory;
-import lib.ui.factories.LoginPageObjectFactory;
-import lib.ui.factories.MarketwatchPageObjectFactory;
-import lib.ui.factories.TradeScreenPageObjectFactory;
+import lib.ui.*;
+import lib.ui.factories.*;
 import org.junit.Test;
 
 public class MarketwatchTests extends CoreTestCase {
 @Test
-    public void marketwatchIsOpen() throws InterruptedException {
+    public void marketwatchIsOpenAndTutorial() throws InterruptedException {
     LoginPageObject LoginPageObject= LoginPageObjectFactory.get(driver);
     LoginPageObject.clickSplashLogin();
     LoginPageObject.enterMyEmailAndPassword();
@@ -22,14 +16,45 @@ public class MarketwatchTests extends CoreTestCase {
     ChoseAccountPageObject ChoseAccountPageObject = ChoseAccountPageObjectFactory.get(driver);
     ChoseAccountPageObject.clickAndGetAccountTypeAndAccountNumber("DEMO");
 
-
     MarketWatchPageObject MarketWatchPageObject = MarketwatchPageObjectFactory.get(driver);
-    MarketWatchPageObject.clickSkipTutorial();
+    MarketWatchPageObject.clickStartTutorial();
+    MarketWatchPageObject.onboardingTutorialIsOpen();
+    MarketWatchPageObject.swipeLeft();
+    MarketWatchPageObject.secondViewPageOnboardingIsOPen();
+    MarketWatchPageObject.swipeLeft();
+    MarketWatchPageObject.thirdViewPageOnboardingIsOPen();
+    MarketWatchPageObject.clickCloseTutorial();
     MarketWatchPageObject.marketwatchScreenIsOpen();
     MarketWatchPageObject.compareAccountIdWithIdOnBlueButton();
     MarketWatchPageObject.clickChartOnly();
+    MarketWatchPageObject.onboardingTutorialForTradeScreenIsOpen1();
+    MarketWatchPageObject.swipeLeft();
+    MarketWatchPageObject.onboardingTutorialForTradeScreenIsOpen2();
+    MarketWatchPageObject.clickCloseTutorial();
 
-    TradeScreenPageObject TradeScreenPageObject = TradeScreenPageObjectFactory.get(driver);
+    TradeScreenPageObject TradeScreenPageObject =  TradeScreenPageObjectFactory.get(driver);
     TradeScreenPageObject.chartOnlyScreenIsOpen();
+}
+@Test
+    public void skipTutorial(){
+    LoginPageObject LoginPageObject= LoginPageObjectFactory.get(driver);
+    ChoseAccountPageObject ChoseAccountPageObject = ChoseAccountPageObjectFactory.get(driver);
+    MarketWatchPageObject MarketWatchPageObject = MarketwatchPageObjectFactory.get(driver);
+    TradeScreenPageObject TradeScreenPageObject =  TradeScreenPageObjectFactory.get(driver);
+    MenuPageObject MenuPageObject = MenuPageObjectFactory.get(driver);
+
+    LoginPageObject.clickSplashLogin();
+    LoginPageObject.enterMyEmailAndPassword();
+    LoginPageObject.clickLogin();
+    ChoseAccountPageObject.clickAndGetAccountTypeAndAccountNumber("DEMO");
+    MarketWatchPageObject.clickCloseTutorial();
+    MarketWatchPageObject.clickChartOnly();
+    TradeScreenPageObject.chartOnlyScreenIsOpen();
+    MarketWatchPageObject.guideContainerIsNotOpen();
+    MenuPageObject.logOut();
+    LoginPageObject.clickLogin();
+    ChoseAccountPageObject.clickAndGetAccountTypeAndAccountNumber("DEMO");
+    MarketWatchPageObject.marketwatchScreenIsOpen();
+    MarketWatchPageObject.guideContainerIsNotOpen();
 }
 }

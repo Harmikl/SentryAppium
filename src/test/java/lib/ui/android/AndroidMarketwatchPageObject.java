@@ -10,7 +10,12 @@ public class AndroidMarketwatchPageObject extends MarketWatchPageObject {
         SKIP_TUTORIAL="id:com.sentryd.trade:id/skip_tutorial";
         CLOSE_TUTORIAL="id:com.sentryd.trade:id/close_view";
         ONBOARDING_TUTORIAL="xpath://android.view.ViewGroup/androidx.viewpager.widget.ViewPager/android.view.ViewGroup";
-        TEXT_TUTORIAL_ON_FIRST_PAGE="xpath://*[contains(@text,'Click any price to move to trading')]";
+        TEXT_TUTORIAL_1 ="xpath://*[contains(@text,'Click any price to move to trading')]";
+        TEXT_TUTORIAL_2 ="xpath://*[contains(@text,'Swipe the right panel for additional information, and Choose a Product')]";
+        TEXT_TUTORIAL_3 ="xpath://*[contains(@text,'Highlight a product and choose any option tenor')]";
+        TEXT_TUTORIAL_FOR_TRADE_SCREEN_1 ="xpath://*[contains(@text,'Go back to Market Watch')]";
+        TEXT_TUTORIAL_FOR_TRADE_SCREEN_2 ="xpath://*[contains(@text,'Choose your trading strategy')]";
+        GUIDE_CONTAINER = "id:com.sentryd.trade:id/guide_container";
         BLUE_BUTTON="id:com.sentryd.trade:id/acc_layout";
         TYPE_OF_ACCOUNT_ON_BLUE_BUTTON="id:com.sentryd.trade:id/tv_acc_title";
         ACCOUNT_NUMBER_ON_BLUE_BUTTON="id:com.sentryd.trade:id/tv_acc_descr";

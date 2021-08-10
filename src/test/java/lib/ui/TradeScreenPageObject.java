@@ -2,7 +2,7 @@ package lib.ui;
 
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-public class TradeScreenPageObject extends MainPageObject {
+public abstract class TradeScreenPageObject extends MainPageObject {
     public TradeScreenPageObject(RemoteWebDriver driver) {
         super(driver);
     }

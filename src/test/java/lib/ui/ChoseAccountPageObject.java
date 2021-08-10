@@ -32,12 +32,11 @@ public  class ChoseAccountPageObject extends MainPageObject{
         Thread.sleep(12000);
     }
 
-    public void clickRealAccountType()
-    {
+    public void clickRealAccountType() {
         this.waitForElementAndClick(TYPE_OF_ACCOUNT_REAL,"Cannot find real account type",10);
     }
 
-    String accountId;
+    static String accountId;
     public String clickAndGetAccountTypeAndAccountNumber(String accountType){
         String accountNumberXpath = ACCOUNT_NUMBER_XPATH.replace("{ACCOUNTTYPE}",accountType);
         this.accountId = this.waitForElementAndGetAttribute(accountNumberXpath,"text","cannot get attribute in "+accountNumberXpath,10);
