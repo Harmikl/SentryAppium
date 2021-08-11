@@ -31,6 +31,35 @@ public class AndroidMarketwatchPageObject extends MarketWatchPageObject {
         CCY_PAIR_NAME ="xpath://*[contains(@text,'{PAIRNAME}')]";
         CCY_PAIR_NAME2="xpath:/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.view.ViewGroup/android.widget.LinearLayout[1]/android.widget.LinearLayout/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[3]/android.widget.TextView";
         CHART_ONLY="xpath://android.widget.LinearLayout/androidx.viewpager.widget.ViewPager/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]";
+        VIEW_PAGER_1_HIGH="xpath://*[contains(@text,'High')]";
+        VIEW_PAGER_1_LOW="xpath://*[contains(@text,'Low')]";
+        VIEW_PAGER_1_CLOSE="xpath://*[contains(@text,'Close')]";
+        VIEW_PAGER_1_INDICATOR="xpath://android.widget.FrameLayout/android.widget.LinearLayout/android.view.View[1]";
+        VIEW_PAGER_1_ITEM="xpath://android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup/android.view.View";
+        VIEW_PAGER_2_CURRENT="xpath://*[contains(@text,'Current')]";
+        VIEW_PAGER_2_WEEK_AGO="xpath://*[contains(@text,'Week ago')]";
+        VIEW_PAGER_2_MONTH_AGO="xpath://*[contains(@text,'Month ago')]";
+        VIEW_PAGER_2_CHART_VIEW="id:com.sentryd.trade:id/volChartView";
+        VIEW_PAGER_2_INDICATOR="xpath://android.widget.FrameLayout/android.widget.LinearLayout/android.view.View[2]";
+        VIEW_PAGER_3_10P="id:com.sentryd.trade:id/tv_label_1";
+        VIEW_PAGER_3_25P="id:com.sentryd.trade:id/tv_label_2";
+        VIEW_PAGER_3_DN="id:com.sentryd.trade:id/tv_label_3";
+        VIEW_PAGER_3_25C="id:com.sentryd.trade:id/tv_label_4";
+        VIEW_PAGER_3_10C="id:com.sentryd.trade:id/tv_label_5";
+        VIEW_PAGER_3_INDICATOR="xpath://android.widget.FrameLayout/android.widget.LinearLayout/android.view.View[3]";
+        VIEW_PAGER_3_ITEM="xpath://androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.TextView";
+        VIEW_PAGER_4_INTERVAL ="xpath://*[contains(@text,'Interval')]";
+        VIEW_PAGER_4_PATTERN_NAME="xpath://*[contains(@text,'Pattern Name')]";
+        VIEW_PAGER_4_QUALITY="xpath://*[contains(@text,'Quality')]";
+        VIEW_PAGER_4_FULL_VIEW="xpath://android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]";
+        VIEW_PAGER_4_SIGNALS="xpath://androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.widget.ImageView[2]";
+        VIEW_PAGER_4_INDICATOR="xpath://android.widget.FrameLayout/android.widget.LinearLayout/android.view.View[4]";
+        VIEW_PAGER_5_LOTS_SIZE="xpath://*[contains(@text,'Lots Size')]";
+                VIEW_PAGER_5_ONE_PIP="xpath://*[contains(@text,'One Pip')]";
+                VIEW_PAGER_5_SPOT_L="xpath://*[contains(@text,'Spot L')]";
+                VIEW_PAGER_5_OPTION_L="xpath://*[contains(@text,'Option L')]";
+                VIEW_PAGER_5_ITEM="xpath://androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.TextView";
+                VIEW_PAGER_5_INDICATOR="xpath://android.widget.FrameLayout/android.widget.LinearLayout/android.view.View[5]";
     }
 
 

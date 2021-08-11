@@ -256,13 +256,19 @@ public class MainPageObject {
     public int getAmountOfElement(String locator) {
         By by = this.getLocatorByString(locator);
         List elements = driver.findElements(by);
-        // List - фуекция которая создает некий список, element -  название переменной,
+        // List - функция которая создает некий список, element -  название переменной,
         // то есть мы возвращаем количество элементов, которые нашли при помощи  driver.findElements(by)
         return elements.size();
     }
 
     public boolean isElementPresent(String locator) {
         return getAmountOfElement(locator) > 0;
+    }
+    public void areElementsMoreThan(String locator,int more_than) {
+        Assert.assertTrue("elements amount = "+getAmountOfElement(locator),getAmountOfElement(locator)>more_than);
+    }
+    public void areElementsLessThan(String locator,int less_than) {
+        Assert.assertTrue("elements amount = "+getAmountOfElement(locator),getAmountOfElement(locator)>less_than);
     }
 
     public void tryClickElementWithFewAttempts(String locator, String error_message, int amount_of_attempts) {

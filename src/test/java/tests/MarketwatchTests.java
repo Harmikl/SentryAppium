@@ -77,4 +77,41 @@ public class MarketwatchTests extends CoreTestCase {
     MarketWatchPageObject.clickBid();
     TradeScreenPageObject.sellButtonIsInSelected();
 }
+@Test
+    public void swipeViewPager() throws InterruptedException {
+    LoginPageObject LoginPageObject= LoginPageObjectFactory.get(driver);
+    ChoseAccountPageObject ChoseAccountPageObject = ChoseAccountPageObjectFactory.get(driver);
+    MarketWatchPageObject MarketWatchPageObject = MarketwatchPageObjectFactory.get(driver);
+
+    LoginPageObject.clickSplashLogin();
+    LoginPageObject.enterMyEmailAndPassword();
+    LoginPageObject.clickLogin();
+    ChoseAccountPageObject.clickAndGetAccountTypeAndAccountNumber("DEMO");
+    MarketWatchPageObject.clickCloseTutorial();
+    MarketWatchPageObject.marketwatchScreenIsOpen();
+    MarketWatchPageObject.swipeLeftViewPageMarketwatch();
+    MarketWatchPageObject.viewPage2IsOpen();
+    MarketWatchPageObject.swipeLeftViewPageMarketwatch();
+    MarketWatchPageObject.viewPage3IsOpen();
+    MarketWatchPageObject.swipeLeftViewPageMarketwatch();
+    MarketWatchPageObject.viewPage4IsOpen();
+    MarketWatchPageObject.swipeLeftViewPageMarketwatch();
+    MarketWatchPageObject.viewPage5IsOpen();
+}
+@Test public void viewPage() throws InterruptedException {
+    LoginPageObject LoginPageObject= LoginPageObjectFactory.get(driver);
+    ChoseAccountPageObject ChoseAccountPageObject = ChoseAccountPageObjectFactory.get(driver);
+    MarketWatchPageObject MarketWatchPageObject = MarketwatchPageObjectFactory.get(driver);
+
+    LoginPageObject.clickSplashLogin();
+    LoginPageObject.enterMyEmailAndPassword();
+    LoginPageObject.clickLogin();
+    ChoseAccountPageObject.clickAndGetAccountTypeAndAccountNumber("DEMO");
+    MarketWatchPageObject.clickCloseTutorial();
+    MarketWatchPageObject.swipeLeftViewPageMarketwatch();
+    MarketWatchPageObject.swipeLeftViewPageMarketwatch();
+    MarketWatchPageObject.swipeLeftViewPageMarketwatch();
+    MarketWatchPageObject.swipeLeftViewPageMarketwatch();
+    MarketWatchPageObject.viewPage5IsOpen();
+}
 }

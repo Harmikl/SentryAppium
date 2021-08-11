@@ -11,6 +11,8 @@ import lib.ui.factories.MarketwatchPageObjectFactory;
 import lib.ui.factories.MenuPageObjectFactory;
 import org.junit.Test;
 
+import static lib.ui.StaticUtils.VERSION;
+
 public class MenuTests extends CoreTestCase {
 
     @Test
@@ -33,7 +35,7 @@ public class MenuTests extends CoreTestCase {
 //        MenuPageObject.closeMenu();
 //        MenuPageObject.openMenu();
         MenuPageObject.swipeUp(200);
-        MenuPageObject.appVersionIsRight("2.140.0");
+        MenuPageObject.appVersionIsRight(VERSION);
         MenuPageObject.clickLogOut();
 
 

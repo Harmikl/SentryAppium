@@ -1,5 +1,6 @@
 package lib.ui;
 
+import lib.ui.mobile_web.MWMarketwatchPageObject;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 public abstract class TradeScreenPageObject extends MainPageObject {
@@ -55,7 +56,20 @@ public abstract class TradeScreenPageObject extends MainPageObject {
         this.waitForElementAndClick(BUY_BUTTON,"Cannot find Buy button",20);
         this.waitForElementPresent(EXECUTE_TRADE_DIALOG_LAYOUT,"Cannot find execute trade dialog",20);
     }
-    public void sellButtonIsInSelected(){
+    public void sellButtonIsInSelected() throws InterruptedException {
+        Thread.sleep(2000);
+//        MarketWatchPageObject MarketWatchPageObject = new MWMarketwatchPageObject(driver);
+//        int number_of_click ;
+//        for (number_of_click=0,number_of_click<5,number_of_click++){
+//            MarketWatchPageObject.clickBid();
+//            System.out.println(number_of_click);
+//            if (this.waitForElementPresent(SELL_BUTTON, "Sell button is appeared",10)){
+//                return;
+//            }
+//        }
+//        if (this.waitForElementNotPresent(SELL_BUTTON, "Sell button is appeared",10)){
+//            MarketWatchPageObject.clickBid();
+//        }
         this.waitForElementAndClick(SELL_BUTTON,"Cannot find Sell button",20);
         this.waitForElementPresent(EXECUTE_TRADE_DIALOG_LAYOUT,"Cannot find execute trade dialog",20);
     }

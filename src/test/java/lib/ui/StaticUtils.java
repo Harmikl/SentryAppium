@@ -19,7 +19,8 @@ public class StaticUtils extends MainPageObject{
             INCORRECT_DEMO_EMAIL = "500103660",
             MY_EMAIL = "qwe2@qwe.qwe",
             MY_PASSWORD = "55555tTt",
-            PASSWORD = "Qwe12345";
+            PASSWORD = "Qwe12345",
+            VERSION ="2.140.1";
 
 
 
