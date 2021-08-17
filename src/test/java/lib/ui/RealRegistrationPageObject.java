@@ -96,7 +96,7 @@ abstract public class RealRegistrationPageObject extends MainPageObject {
         this.waitForElementAndClick(NEXT_4,"Cannot click next 4 button",5);
     }
     public void enterData5thWebView() throws InterruptedException {
-        Thread.sleep(1000);
+        Thread.sleep(3000);
         this.waitForElementAndClick(SENTRY_OPTIONS,"Cannot click 'Sentry options' button",5);
         this.waitForElementAndClick(NEXT_5,"Cannot click next 5 button",5);
     }
@@ -112,11 +112,11 @@ abstract public class RealRegistrationPageObject extends MainPageObject {
         this.waitForElementAndClick(EMPLOYMENT_8,"Cannot click accountancy 8 button",5);
     }
     public void enterData9thWebView() throws InterruptedException {
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         this.waitForElementAndClick(LESS_THAN_9,"Cannot click less than 9 button",5);
     }
     public void enterData10thWebView() throws InterruptedException {
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         this.waitForElementAndClick(LESS_THAN_10,"Cannot click less than 10 button",5);
     }
     public void enterData11thWebView() throws InterruptedException {

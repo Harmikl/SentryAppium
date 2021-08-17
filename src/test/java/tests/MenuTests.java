@@ -32,8 +32,8 @@ public class MenuTests extends CoreTestCase {
         MenuPageObject MenuPageObject =  MenuPageObjectFactory.get(driver);
         MenuPageObject.openMenu();
         MenuPageObject.compareAccountNumberFromChooseAccountAndMenu();
-//        MenuPageObject.closeMenu();
-//        MenuPageObject.openMenu();
+        MenuPageObject.closeMenu();
+        MenuPageObject.openMenu();
         MenuPageObject.swipeUp(200);
         MenuPageObject.appVersionIsRight(VERSION);
         MenuPageObject.clickLogOut();

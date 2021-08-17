@@ -62,7 +62,7 @@ public class Platform {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("platformName", "Android");
         capabilities.setCapability("deviceName", "AndroidTestDevice");
-        capabilities.setCapability("platformVersion", "9.0");
+        capabilities.setCapability("platformVersion", "10.0");
         capabilities.setCapability("automationName", "Appium");
         capabilities.setCapability("appPackage", "com.sentryd.trade");
         capabilities.setCapability("appActivity", ".ui.activity.SplashActivity");

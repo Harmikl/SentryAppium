@@ -52,9 +52,10 @@ public abstract class TradeScreenPageObject extends MainPageObject {
     {
         this.waitForElementPresent(GO_TO_MARKETWATCH,"Cannot find go to marketwatch button",10);
     }
-    public void buyButtonIsInSelected(){
-        this.waitForElementAndClick(BUY_BUTTON,"Cannot find Buy button",20);
-        this.waitForElementPresent(EXECUTE_TRADE_DIALOG_LAYOUT,"Cannot find execute trade dialog",20);
+    public void buyButtonIsInSelected() throws InterruptedException {
+        Thread.sleep(4000);
+        this.clickClickableElement(BUY_BUTTON,"Cannot find Buy button",20);
+        this.waitTillElementBeClickable(EXECUTE_TRADE_DIALOG_LAYOUT,"Cannot find execute trade dialog");
     }
     public void sellButtonIsInSelected() throws InterruptedException {
         Thread.sleep(2000);

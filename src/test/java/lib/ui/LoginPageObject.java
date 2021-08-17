@@ -114,8 +114,8 @@ abstract public class LoginPageObject extends MainPageObject{
         this.waitForElementAndClick(LOGIN,"Cannot click login button",10);
     }
 
-    public void clickCreateAccount()
-    {
+    public void clickCreateAccount() throws InterruptedException {
+        Thread.sleep(1000);
         this.waitForElementAndClick(CREATE_ACCOUNT,"Cannot find create account button",10);
     }
 
@@ -167,7 +167,7 @@ abstract public class LoginPageObject extends MainPageObject{
     public void enterIncompleteRegistrationEmail()
     {
         this.waitForElementAndSendKeys(EMAIL_LOGIN,INCOMPLETE_REGISTER_EMAIL,"Cannot enter email in email input",10);
-        this.waitForElementAndSendKeys(PASSWORD_LOGIN,PASSWORD,"Cannot enter password in password input",10);
+        this.waitForElementAndSendKeys(PASSWORD_LOGIN,MY_PASSWORD,"Cannot enter password in password input",10);
     }
 
     public void IncorrectLoginErrorForRealAccIsShown()

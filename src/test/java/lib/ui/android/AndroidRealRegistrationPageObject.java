@@ -38,7 +38,7 @@ public class AndroidRealRegistrationPageObject extends RealRegistrationPageObjec
         NEXT_13="xpath://*[contains(@text,'Next')]";//"xpath://android.view.View[2]/android.view.View/android.view.View/android.view.View[5]/android.widget.Button";
         DEPOSIT_NOW_FINAL_REGISTER="xpath://*[contains(@text,'Deposit now')]";
         SKIP_FINAL_REGISTER="xpath://*[contains(@text,'Skip')]";
-        REAL_REGISTRATION_WEBVIEW="xpath://android.view.View/android.view.View[5]/android.view.View[2]/android.view.View/android.view.View/android.view.View[2]";
+        REAL_REGISTRATION_WEBVIEW="xpath://android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View";
         DEPOSIT_WEBVIEW_HEADER="id:com.sentryd.trade:id/header_text";
         CLOSE_DEPOSIT_WEBVIEW="id:com.sentryd.trade:id/close_view";
         PLEASE_CHOOSE_DEPOSIT_METHOD="xpath://*[contains(@text,'Please choose deposit method')]";
