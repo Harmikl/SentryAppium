@@ -5,7 +5,8 @@ import tests.*;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
         SignInUpTests.class,
-        MarketwatchTests.class
+        MarketwatchTests.class,
+        MenuTests.class
 })
 public class TestSuite {
 }
