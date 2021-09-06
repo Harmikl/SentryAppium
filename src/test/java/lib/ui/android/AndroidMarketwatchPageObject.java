@@ -42,10 +42,15 @@ public class AndroidMarketwatchPageObject extends MarketWatchPageObject {
         VIEW_PAGER_2_CHART_VIEW="id:com.sentryd.trade:id/volChartView";
         VIEW_PAGER_2_INDICATOR="xpath://android.widget.FrameLayout/android.widget.LinearLayout/android.view.View[2]";
         VIEW_PAGER_3_10P="id:com.sentryd.trade:id/tv_label_1";
+        VIEW_PAGER_3_10P_EURUSD="xpath://android.view.ViewGroup[1]/android.widget.LinearLayout/android.widget.TextView[1]";
         VIEW_PAGER_3_25P="id:com.sentryd.trade:id/tv_label_2";
+        VIEW_PAGER_3_25P_EURUSD = "xpath://android.view.ViewGroup[1]/android.widget.LinearLayout/android.widget.TextView[2]";
         VIEW_PAGER_3_DN="id:com.sentryd.trade:id/tv_label_3";
+        VIEW_PAGER_3_DN_EURUSD="xpath://android.view.ViewGroup[1]/android.widget.LinearLayout/android.widget.TextView[3]";
         VIEW_PAGER_3_25C="id:com.sentryd.trade:id/tv_label_4";
+        VIEW_PAGER_3_25C_EURUSD = "xpath://android.view.ViewGroup[1]/android.widget.LinearLayout/android.widget.TextView[4]";
         VIEW_PAGER_3_10C="id:com.sentryd.trade:id/tv_label_5";
+        VIEW_PAGER_3_10C_EURUSD = "xpath://android.view.ViewGroup[1]/android.widget.LinearLayout/android.widget.TextView[5]";
         VIEW_PAGER_3_INDICATOR="xpath://android.widget.FrameLayout/android.widget.LinearLayout/android.view.View[3]";
         VIEW_PAGER_3_ITEM="xpath://androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.TextView";
         VIEW_PAGER_4_INTERVAL ="xpath://*[contains(@text,'Interval')]";

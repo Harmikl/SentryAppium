@@ -52,10 +52,15 @@ abstract public class MarketWatchPageObject extends MainPageObject {
     VIEW_PAGER_2_CHART_VIEW,
     VIEW_PAGER_2_INDICATOR,
     VIEW_PAGER_3_10P,
+    VIEW_PAGER_3_10P_EURUSD,
     VIEW_PAGER_3_25P,
+    VIEW_PAGER_3_25P_EURUSD,
     VIEW_PAGER_3_DN,
+    VIEW_PAGER_3_DN_EURUSD,
     VIEW_PAGER_3_25C,
+    VIEW_PAGER_3_25C_EURUSD,
     VIEW_PAGER_3_10C,
+    VIEW_PAGER_3_10C_EURUSD,
     VIEW_PAGER_3_INDICATOR,
     VIEW_PAGER_3_ITEM,
             VIEW_PAGER_4_INTERVAL,
@@ -98,7 +103,7 @@ abstract public class MarketWatchPageObject extends MainPageObject {
     }
     public void clickCloseTutorial() throws InterruptedException {
         this.waitForElementAndClick(CLOSE_TUTORIAL,"Cannot find Start tutorial button",120);
-        Thread.sleep(1500);
+        this.waitTillElementBeClickable(BLUE_BUTTON,"Cannot locate blue button");
     }
     public void onboardingTutorialIsOpen() {
         this.waitForElementPresent(ONBOARDING_TUTORIAL,"Cannot find  tutorial ",120);
@@ -195,7 +200,7 @@ abstract public class MarketWatchPageObject extends MainPageObject {
     }
 
     public void clickChartOnly() {
-        this.waitForElementAndClick(CHART_ONLY,"Cannot find chart only",10);
+        this.clickClickableElement(CHART_ONLY,"Cannot find chart only",15);
     }
 
     public void clickAsk()  {
@@ -260,5 +265,9 @@ abstract public class MarketWatchPageObject extends MainPageObject {
         this.assertGetAttribute(VIEW_PAGER_5_INDICATOR,"selected","true",
                 "view pager 5 is not in selected state",10);
         this.areElementsMoreThan(VIEW_PAGER_5_ITEM,27);
+    }
+
+    public void click10PEURUSD (){
+        this.clickClickableElement(VIEW_PAGER_3_10P_EURUSD,"Cannot click 10P eur/usd",15);
     }
 }

@@ -47,6 +47,7 @@ public abstract class TradeScreenPageObject extends MainPageObject {
         this.waitForElementPresent(TYPE_OF_ACCOUNT_ON_BLUE_BUTTON,"Cannot find account value type on blue button",10);
         this.waitForElementPresent(ACCOUNT_NUMBER_ON_BLUE_BUTTON,"Cannot find account value number on blue button",10);
         this.waitForElementPresent(ACCOUNT_VALUE,"Cannot find account value button",10);
+        this.assertGetAttribute(STRATEGY_NAME,"text","CHART ONLY","Strategy name is not chart only",15);
     }
     public void tradeScreenIsOpen()
     {
@@ -76,6 +77,6 @@ public abstract class TradeScreenPageObject extends MainPageObject {
     }
 
     public void goToMarketwatch(){
-        this.waitForElementAndClick(GO_TO_MARKETWATCH,"Cannot go to marketwatch button",20);
+        this.clickClickableElement(GO_TO_MARKETWATCH,"Cannot go to marketwatch button",15);
     }
 }

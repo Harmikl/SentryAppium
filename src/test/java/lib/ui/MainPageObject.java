@@ -371,7 +371,7 @@ public class MainPageObject {
 
     public WebElement waitTillElementBeClickable(String locator, String error_message) {
         By by = this.getLocatorByString(locator);
-        WebDriverWait wait = new WebDriverWait(driver, 20);
+        WebDriverWait wait = new WebDriverWait(driver, 15);
         return wait.until(ExpectedConditions.elementToBeClickable(by));
     }
 

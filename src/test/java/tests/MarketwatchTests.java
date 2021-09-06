@@ -114,4 +114,22 @@ public class MarketwatchTests extends CoreTestCase {
     MarketWatchPageObject.swipeLeftViewPageMarketwatch();
     MarketWatchPageObject.viewPage5IsOpen();
 }
+@Test
+    public void click10PEURUSD() throws InterruptedException {
+    LoginPageObject LoginPageObject= LoginPageObjectFactory.get(driver);
+    ChoseAccountPageObject ChoseAccountPageObject = ChoseAccountPageObjectFactory.get(driver);
+    MarketWatchPageObject MarketWatchPageObject = MarketwatchPageObjectFactory.get(driver);
+    TradeScreenPageObject TradeScreenPageObject =  TradeScreenPageObjectFactory.get(driver);
+    MenuPageObject MenuPageObject = MenuPageObjectFactory.get(driver);
+
+    LoginPageObject.clickSplashLogin();
+    LoginPageObject.enterMyEmailAndPassword();
+    LoginPageObject.clickLogin();
+    ChoseAccountPageObject.clickAndGetAccountTypeAndAccountNumber("DEMO");
+    MarketWatchPageObject.clickCloseTutorial();
+    MarketWatchPageObject.swipeLeftViewPageMarketwatch();
+    MarketWatchPageObject.swipeLeftViewPageMarketwatch();
+    MarketWatchPageObject.click10PEURUSD();
+    TradeScreenPageObject.goToMarketwatch();
+}
 }
