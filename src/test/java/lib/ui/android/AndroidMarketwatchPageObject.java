@@ -60,11 +60,17 @@ public class AndroidMarketwatchPageObject extends MarketWatchPageObject {
         VIEW_PAGER_4_SIGNALS="xpath://androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.widget.ImageView[2]";
         VIEW_PAGER_4_INDICATOR="xpath://android.widget.FrameLayout/android.widget.LinearLayout/android.view.View[4]";
         VIEW_PAGER_5_LOTS_SIZE="xpath://*[contains(@text,'Lots Size')]";
-                VIEW_PAGER_5_ONE_PIP="xpath://*[contains(@text,'One Pip')]";
-                VIEW_PAGER_5_SPOT_L="xpath://*[contains(@text,'Spot L')]";
-                VIEW_PAGER_5_OPTION_L="xpath://*[contains(@text,'Option L')]";
-                VIEW_PAGER_5_ITEM="xpath://androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.TextView";
-                VIEW_PAGER_5_INDICATOR="xpath://android.widget.FrameLayout/android.widget.LinearLayout/android.view.View[5]";
+        VIEW_PAGER_5_ONE_PIP="xpath://*[contains(@text,'One Pip')]";
+        VIEW_PAGER_5_SPOT_L="xpath://*[contains(@text,'Spot L')]";
+        VIEW_PAGER_5_OPTION_L="xpath://*[contains(@text,'Option L')]";
+        VIEW_PAGER_5_ITEM="xpath://androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.TextView";
+        VIEW_PAGER_5_INDICATOR="xpath://android.widget.FrameLayout/android.widget.LinearLayout/android.view.View[5]";
+        VIEW_PAGER_6_INTEREST_LONG= "xpath://*[contains(@text,'Interest Long')]";
+        VIEW_PAGER_6_INTEREST_SHORT= "xpath://*[contains(@text,'Interest Short')]";
+        VIEW_PAGER_6_SPOT_TOLERANCE= "xpath://*[contains(@text,'Spot Tolerance')]";
+        VIEW_PAGER_6_OPTION_TOLERANCE = "xpath://*[contains(@text,'Option Tolerance')]";
+        VIEW_PAGER_6_ITEM="xpath://android.view.ViewGroup/android.widget.LinearLayout/android.widget.TextView";
+        VIEW_PAGER_6_INDICATOR = "xpath://android.widget.FrameLayout/android.widget.LinearLayout/android.view.View[6]";
     }
 
 

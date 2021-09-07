@@ -6,6 +6,7 @@ import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import lib.Platform;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -64,7 +65,7 @@ public abstract class MenuPageObject extends MainPageObject{
     }
     public void logOut(){
         openMenu();
-        swipeUp(200);
+        swipeUpToFindElement(MENU_LOGOUT,"Cannot find logout button",5);
         clickLogOut();
     }
     @Override
@@ -84,6 +85,22 @@ public abstract class MenuPageObject extends MainPageObject{
         } else {
             System.out.println("Method swipeUp do nothing for platform " + Platform.getInstance().getPlatformVar());
         }
+    }
+
+    @Override
+    public void swipeUpToFindElement(String locator, String error_message, int max_swipes) {
+        By by = this.getLocatorByString(locator);
+        int already_swiped = 0;
+        while (driver.findElements(by).size() == 0) {//эта функция находит все элементы
+
+            if (already_swiped > max_swipes) {
+                waitForElementPresent(locator, "Cannot not find element by swiping up" + error_message, 0);
+                return;
+            }
+            swipeUp(200);
+            ++already_swiped;
+        }
+
     }
 
     public void clickMyAccount(){

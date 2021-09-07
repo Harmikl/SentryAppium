@@ -74,7 +74,13 @@ abstract public class MarketWatchPageObject extends MainPageObject {
     VIEW_PAGER_5_SPOT_L,
     VIEW_PAGER_5_OPTION_L,
     VIEW_PAGER_5_ITEM,
-    VIEW_PAGER_5_INDICATOR;
+    VIEW_PAGER_5_INDICATOR,
+    VIEW_PAGER_6_INTEREST_LONG,
+    VIEW_PAGER_6_INTEREST_SHORT,
+    VIEW_PAGER_6_SPOT_TOLERANCE,
+    VIEW_PAGER_6_OPTION_TOLERANCE,
+    VIEW_PAGER_6_ITEM,
+    VIEW_PAGER_6_INDICATOR;
 
 
 
@@ -152,7 +158,7 @@ abstract public class MarketWatchPageObject extends MainPageObject {
         this.swipe(200);
     }
 
-    public void swipeLeftViewPageMarketwatch(){
+    public void swipeLeftViewPageMarketwatch() throws InterruptedException {
             TouchAction action = new TouchAction((AppiumDriver) driver);
     Dimension size = driver.manage().window().getSize();
     int start_x = (int) (size.width * 0.95);
@@ -165,6 +171,7 @@ abstract public class MarketWatchPageObject extends MainPageObject {
                     .moveTo(PointOption.point(end_x,y))
                     .release()
                     .perform();// тут мы написали что нужно нажать, сместить, потом опять нажать и все это запустить
+        Thread.sleep(1000);
     }
 
     public void swipeRightViewPageMarketwatch(){
@@ -266,8 +273,33 @@ abstract public class MarketWatchPageObject extends MainPageObject {
                 "view pager 5 is not in selected state",10);
         this.areElementsMoreThan(VIEW_PAGER_5_ITEM,27);
     }
+    public void viewPage6IsOpen(){
+        this.waitForElementPresent(VIEW_PAGER_6_INTEREST_LONG,"Cannot locate interest long",10);
+        this.waitForElementPresent(VIEW_PAGER_6_INTEREST_SHORT,"Cannot locate interest short",10);
+        this.waitForElementPresent(VIEW_PAGER_6_SPOT_TOLERANCE,"Cannot locate spot tolerance",10);
+        this.waitForElementPresent(VIEW_PAGER_6_OPTION_TOLERANCE,"Cannot locate option tolerance",10);
+        this.assertGetAttribute(VIEW_PAGER_6_INDICATOR,"selected","true",
+                "view pager 6 is not in selected state",10);
+        this.areElementsMoreThan(VIEW_PAGER_6_ITEM,27);
+    }
 
     public void click10PEURUSD (){
         this.clickClickableElement(VIEW_PAGER_3_10P_EURUSD,"Cannot click 10P eur/usd",15);
+    }
+    public void click25PEURUSD (){
+        this.clickClickableElement(VIEW_PAGER_3_25P_EURUSD,"Cannot click 25P eur/usd",15);
+    }
+    public void clickDNEURUSD (){
+        this.clickClickableElement(VIEW_PAGER_3_DN_EURUSD,"Cannot click DN eur/usd",15);
+    }
+    public void click25CEURUSD (){
+        this.clickClickableElement(VIEW_PAGER_3_25C_EURUSD,"Cannot click 25C eur/usd",15);
+    }
+    public void click10CEURUSD (){
+        this.clickClickableElement(VIEW_PAGER_3_10C_EURUSD,"Cannot click 10C eur/usd",15);
+    }
+
+    public void clickBlueButton(){
+        this.clickClickableElement(BLUE_BUTTON,"Cannot click blue button",10);
     }
 }
